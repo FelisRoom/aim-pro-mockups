@@ -1,0 +1,932 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AIM PRO prototype</title><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"><style>*{box-sizing:border-box}
+:root{color-scheme:light}
+body{margin:0;background:#E3E7E5;font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;color:#1B2421}
+.frame{margin:0 auto;background:#F4F5F3;box-sizing:content-box}
+.frame *{box-sizing:revert}
+.phone .frame{border-radius:28px;overflow:hidden;box-shadow:0 0 0 10px #1B2421}
+.label{font:600 14px Inter,system-ui,sans-serif;color:#3F4A45;padding:10px 16px;text-align:center}
+
+.bar{position:sticky;top:0;z-index:5;background:#1B2421;color:#fff;display:flex;gap:12px;align-items:center;flex-wrap:wrap;padding:10px 16px;font-size:14px}
+.bar select{height:36px;border-radius:8px;border:0;padding:0 8px;font:inherit;max-width:100%}
+.bar button{height:36px;border-radius:8px;border:1px solid #56625D;background:#2C3833;color:#fff;font:inherit;padding:0 12px;cursor:pointer}
+.screen{display:none;padding:12px 16px 40px;overflow-x:auto}
+.screen.on{display:block}
+.phone .frame{margin-top:12px}
+#Main a{color:#0E6A73}
+#Main a:hover{color:#0A4F56}
+#Role a{color:#0E6A73}
+#Role a:hover{color:#0A4F56}
+#EduHome a{color:#0E6A73}
+#EduHome a:hover{color:#0A4F56}
+#EduResults a{color:#0E6A73}
+#EduResults a:hover{color:#0A4F56}
+#EduScenario a{color:#0E6A73}
+#EduScenario a:hover{color:#0A4F56}
+#EduActivity a{color:#0E6A73}
+#EduActivity a:hover{color:#0A4F56}
+#EduResources a{color:#0E6A73}
+#EduResources a:hover{color:#0A4F56}
+#EduProgress a{color:#0E6A73}
+#EduProgress a:hover{color:#0A4F56}
+#EduProgress th,#EduProgress td{padding:10px 12px;border-bottom:1px solid #E6EAE8;text-align:left;font-size:13px;vertical-align:top}
+#NewBasics a{color:#0E6A73}
+#NewBasics a:hover{color:#0A4F56}
+#NewGoals a{color:#0E6A73}
+#NewGoals a:hover{color:#0A4F56}
+#NewPhases a{color:#0E6A73}
+#NewPhases a:hover{color:#0A4F56}
+#NewAssign a{color:#0E6A73}
+#NewAssign a:hover{color:#0A4F56}
+#StuSetup a{color:#0E6A73}
+#StuSetup a:hover{color:#0A4F56}
+#StuHome a{color:#0E6A73}
+#StuHome a:hover{color:#0A4F56}
+#StuPath a{color:#0E6A73}
+#StuPath a:hover{color:#0A4F56}
+#StuSteps a{color:#0E6A73}
+#StuSteps a:hover{color:#0A4F56}
+#StuNotes a{color:#0E6A73}
+#StuNotes a:hover{color:#0A4F56}
+#StuQuiz a{color:#0E6A73}
+#StuQuiz a:hover{color:#0A4F56}
+#StuProfile a{color:#0E6A73}
+#StuProfile a:hover{color:#0A4F56}</style></head><body>
+<div class="bar"><strong>AIM PRO clickable prototype</strong><label for="pick" style="position:absolute;left:-9999px">Go to screen</label><select id="pick"><option value="Main">1. Sign in</option><option value="Role">2. Choose your role</option><option value="EduHome">E1. Educator home: what do you need?</option><option value="EduResults">E2. Learning scenarios found in the library</option><option value="EduScenario">E3. Learning scenario: context, phases, goals, activities</option><option value="EduActivity">E4. Activity editor: workplace task</option><option value="EduResources">E5. Resource library</option><option value="EduProgress">E6. Learners and competencies</option><option value="NewBasics">N1. New scenario: basics and learners</option><option value="NewGoals">N2. New scenario: goals and competencies</option><option value="NewPhases">N3. New scenario: phases and activities</option><option value="NewAssign">N4. New scenario: assign learners and publish</option><option value="StuSetup">S1. Student: tell us about you (learner context)</option><option value="StuHome">S2. Student home</option><option value="StuPath">S3. Student: my learning path</option><option value="StuSteps">S4. Student: workplace task (conveyor motor)</option><option value="StuNotes">S5. Student: my notes (learning artifact)</option><option value="StuQuiz">S6. Student: self-assessment</option><option value="StuProfile">S7. Student: competencies, certificate, portfolio</option></select><button type="button" id="prev">Previous</button><button type="button" id="next">Next</button><span style="opacity:.75">Click the buttons and links inside each screen.</span></div>
+<section class="screen" id="Main" data-title="1. Sign in"><div class="label">1. Sign in</div><div class="frame" style="width:1280px">
+
+
+
+
+
+<div style="font-family: Inter, system-ui, sans-serif; color: #1B2421; background: #F4F5F3; min-height: 760px; display: flex; align-items: center; justify-content: center; padding: 40px 16px; box-sizing: border-box">
+  <section style="width: 100%; max-width: 420px; background: #FFFFFF; border: 1px solid #DCE1DE; border-radius: 14px; padding: 36px 32px; display: flex; flex-direction: column; gap: 20px; box-sizing: border-box">
+    <div style="display: flex; align-items: center; gap: 12px">
+      <div style="width: 40px; height: 40px; border-radius: 10px; background: #0E6A73; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 15px">AP</div>
+      <div style="font-size: 18px; font-weight: 700">AIM PRO</div>
+    </div>
+    <div>
+      <h1 style="margin: 0 0 6px; font-size: 24px; font-weight: 700">Sign in</h1>
+      <p style="margin: 0; font-size: 15px; line-height: 1.5; color: #56625D">AI literacy for your professional future. For universities, VET schools and companies.</p>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 6px">
+      <label for="Main-email" style="font-size: 14px; font-weight: 600">Email</label>
+      <input id="Main-email" value="marco@vet-school.eu" style="height: 44px; border: 1px solid #C9D0CC; border-radius: 8px; padding: 0 12px; font: inherit; font-size: 15px">
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 6px">
+      <label for="Main-pw" style="font-size: 14px; font-weight: 600">Password</label>
+      <input id="Main-pw" type="password" value="password" style="height: 44px; border: 1px solid #C9D0CC; border-radius: 8px; padding: 0 12px; font: inherit; font-size: 15px">
+    </div>
+    <a href="#Role" style="display: flex; align-items: center; justify-content: center; min-height: 48px; border-radius: 10px; background: #0E6A73; color: #FFFFFF; font-weight: 600; font-size: 15px; text-decoration: none">Sign in</a>
+    <div style="display: flex; align-items: center; gap: 12px; font-size: 13px; color: #56625D"><span style="flex: 1; height: 1px; background: #DCE1DE"></span>or<span style="flex: 1; height: 1px; background: #DCE1DE"></span></div>
+    <a href="#Role" style="display: flex; align-items: center; justify-content: center; min-height: 48px; border-radius: 10px; border: 1px solid #C9D0CC; background: #FFFFFF; color: #1B2421; font-weight: 600; font-size: 15px; text-decoration: none">Sign in with my university, school or company account</a>
+    <p style="margin: 0; font-size: 14px; color: #56625D; text-align: center">New here? <a href="#Role">Create an account</a></p>
+  </section>
+</div>
+
+
+</div></section><section class="screen" id="Role" data-title="2. Choose your role"><div class="label">2. Choose your role</div><div class="frame" style="width:1280px">
+
+
+
+
+
+<div style="font-family: Inter, system-ui, sans-serif; color: #1B2421; background: #F4F5F3; min-height: 760px; display: flex; align-items: center; justify-content: center; padding: 40px 16px; box-sizing: border-box">
+  <section style="width: 100%; max-width: 960px; display: flex; flex-direction: column; gap: 24px">
+    <div style="text-align: center">
+      <h1 style="margin: 0 0 8px; font-size: 28px; font-weight: 700">How will you use AIM PRO?</h1>
+      <p style="margin: 0; font-size: 15px; color: #56625D">You can change this later in your profile.</p>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px">
+      <a href="#EduHome" style="background: #FFFFFF; border: 2px solid #0E6A73; border-radius: 14px; padding: 28px 24px; display: flex; flex-direction: column; gap: 12px; text-decoration: none; color: #1B2421">
+        <svg aria-hidden="true" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#0E6A73" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7l9-4 9 4-9 4-9-4z"></path><path d="M7 9v5c0 1.5 2.2 3 5 3s5-1.5 5-3V9"></path></svg>
+        <span style="font-size: 20px; font-weight: 700">I am an educator</span>
+        <span style="font-size: 15px; line-height: 1.5; color: #3F4A45">Lecturer, teacher, VET trainer or company tutor. Design learning scenarios and follow your learners' competencies.</span>
+      </a>
+      <a href="#StuSetup" style="background: #FFFFFF; border: 1px solid #C9D0CC; border-radius: 14px; padding: 28px 24px; display: flex; flex-direction: column; gap: 12px; text-decoration: none; color: #1B2421">
+        <svg aria-hidden="true" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#0E6A73" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"></path></svg>
+        <span style="font-size: 20px; font-weight: 700">I am a student</span>
+        <span style="font-size: 15px; line-height: 1.5; color: #3F4A45">University or VET student, or apprentice. Follow your learning path and earn competencies and certificates.</span>
+      </a>
+      <a href="#StuSetup" style="background: #FFFFFF; border: 1px solid #C9D0CC; border-radius: 14px; padding: 28px 24px; display: flex; flex-direction: column; gap: 12px; text-decoration: none; color: #1B2421">
+        <svg aria-hidden="true" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#0E6A73" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"></rect><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+        <span style="font-size: 20px; font-weight: 700">I am learning for myself</span>
+        <span style="font-size: 15px; line-height: 1.5; color: #3F4A45">Anyone who wants to learn about AI on their own, at their own pace, for work or for everyday life.</span>
+      </a>
+    </div>
+  </section>
+</div>
+
+
+</div></section><section class="screen" id="EduHome" data-title="E1. Educator home: what do you need?"><div class="label">E1. Educator home: what do you need?</div><div class="frame" style="width:1280px">
+
+
+
+
+
+<div style="font-family: Inter, system-ui, sans-serif; color: #1B2421; background: #F4F5F3; min-height: 760px">
+  <header style="background: #FFFFFF; border-bottom: 1px solid #DCE1DE; padding: 12px 24px; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap">
+    <div style="display: flex; align-items: center; gap: 12px"><div style="width: 32px; height: 32px; border-radius: 8px; background: #0E6A73; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px">AP</div><div style="font-size: 15px; font-weight: 600">AIM PRO</div></div>
+    <div style="display: flex; align-items: center; gap: 16px; font-size: 13px; color: #56625D">
+      <label for="EduHome-lang" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Language</label>
+      <select id="EduHome-lang" style="height: 36px; border: 1px solid #C9D0CC; border-radius: 8px; padding: 0 8px; font: inherit; background: #FFFFFF"><option>English</option><option>Italiano</option><option>Español</option><option>Ελληνικά</option></select>
+      <span>Marco · VET trainer · Maintenance programme</span>
+    </div>
+  </header>
+  <div style="display: flex; flex-wrap: wrap">
+    <nav aria-label="Main" style="flex: 1 1 220px; max-width: 260px; padding: 20px 12px; display: flex; flex-direction: column; gap: 4px; box-sizing: border-box">
+      <a href="#EduHome" style="padding: 10px 12px; border-radius: 8px; background: #DCEDEE; color: #0A4F56; font-weight: 600; font-size: 14px; text-decoration: none">Home</a><a href="#EduScenario" style="padding: 10px 12px; border-radius: 8px; color: #1B2421; font-size: 14px; text-decoration: none">Learning scenarios</a><a href="#EduActivity" style="padding: 10px 12px; border-radius: 8px; color: #1B2421; font-size: 14px; text-decoration: none">Activities</a><a href="#EduResources" style="padding: 10px 12px; border-radius: 8px; color: #1B2421; font-size: 14px; text-decoration: none">Resources</a><a href="#EduProgress" style="padding: 10px 12px; border-radius: 8px; color: #1B2421; font-size: 14px; text-decoration: none">Learners and competencies</a>
+      <div style="margin-top: 16px; padding: 12px; border-radius: 10px; background: #FFFFFF; border: 1px solid #DCE1DE; font-size: 13px; line-height: 1.45; color: #3F4A45">My educator group: <strong>Maintenance programme</strong><br>2 VET trainers, 3 company mentors</div>
+    </nav>
+    <main style="flex: 999 1 560px; min-width: 0; padding: 28px 24px 56px; display: flex; flex-direction: column; gap: 18px; max-width: 1000px">
+      <section style="background: #FFFFFF; border: 1px solid #DCE1DE; border-radius: 12px; padding: 18px 20px; display: flex; flex-direction: column; gap: 10px; padding: 22px 24px"><h1 style="margin: 0; font-size: 24px; font-weight: 700">Hi Marco, what do you need today?</h1>
+        <label for="EduHome-need" style="font-size: 14px; color: #56625D">Ask the AIM PRO assistant in your own words.</label>
+        <textarea id="EduHome-need" rows="3" style="border: 1px solid #C9D0CC; border-radius: 8px; padding: 12px; font: inherit; font-size: 15px; line-height: 1.5; resize: vertical">I need a learning scenario for Year 1 maintenance apprentices on using AI responsibly at work, with tasks they can do at the company with their mentor. About 4 weeks, ending with a certificate.</textarea>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center">
+          <a href="#EduResults" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 20px; border-radius: 10px; background: #0E6A73; color: #FFFFFF; font-weight: 600; font-size: 15px; text-decoration: none">Continue</a>
+          <a href="#EduResults" style="display: inline-flex; align-items: center; min-height: 40px; padding: 0 14px; border-radius: 999px; border: 1px solid #C9D0CC; color: #1B2421; font-size: 14px; text-decoration: none; background: #FFFFFF">Find a learning scenario</a>
+          <a href="#NewBasics" style="display: inline-flex; align-items: center; min-height: 40px; padding: 0 14px; border-radius: 999px; border: 1px solid #C9D0CC; color: #1B2421; font-size: 14px; text-decoration: none; background: #FFFFFF">Create a new scenario</a>
+          <a href="#EduResources" style="display: inline-flex; align-items: center; min-height: 40px; padding: 0 14px; border-radius: 999px; border: 1px solid #C9D0CC; color: #1B2421; font-size: 14px; text-decoration: none; background: #FFFFFF">Find resources</a>
+        </div>
+        <div style="font-size: 12px; color: #56625D">The assistant suggests, you decide. It uses a small, low-energy model when that is enough.</div></section>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px">
+        <section style="background: #FFFFFF; border: 1px solid #DCE1DE; border-radius: 12px; padding: 18px 20px; display: flex; flex-direction: column; gap: 10px; "><h2 style="margin: 0; font-size: 16px; font-weight: 700">Needs your attention</h2>
+          <a href="#EduProgress" style="display: flex; justify-content: space-between; gap: 8px; padding: 12px; border-radius: 10px; background: #FCEBD3; color: #7A4200; text-decoration: none; font-size: 14px"><span><strong>4 apprentices' notes</strong> to review</span><span>Review</span></a>
+          <a href="#EduProgress" style="display: flex; justify-content: space-between; gap: 8px; padding: 12px; border-radius: 10px; background: #F4F5F3; color: #1B2421; text-decoration: none; font-size: 14px"><span><strong>3 apprentices</strong> have not started</span><span>See who</span></a>
+          <a href="#EduScenario" style="display: flex; justify-content: space-between; gap: 8px; padding: 12px; border-radius: 10px; background: #F4F5F3; color: #1B2421; text-decoration: none; font-size: 14px"><span><strong>Phase 3</strong> opens on Monday</span><span>Check</span></a></section>
+        <section style="background: #FFFFFF; border: 1px solid #DCE1DE; border-radius: 12px; padding: 18px 20px; display: flex; flex-direction: column; gap: 10px; "><h2 style="margin: 0; font-size: 16px; font-weight: 700">Competency mastery, my apprentices</h2>
+          <div style="display: flex; flex-direction: column; gap: 10px"><div><div style="display: flex; justify-content: space-between; gap: 8px; font-size: 14px"><span>Understanding AI</span><span>82%</span></div><div style="height: 8px; border-radius: 999px; background: #E6EAE8; margin-top: 4px"><div style="width: 82%; height: 8px; border-radius: 999px; background: #0E6A73"></div></div></div><div><div style="display: flex; justify-content: space-between; gap: 8px; font-size: 14px"><span>Using AI effectively</span><span>61%</span></div><div style="height: 8px; border-radius: 999px; background: #E6EAE8; margin-top: 4px"><div style="width: 61%; height: 8px; border-radius: 999px; background: #0E6A73"></div></div></div><div><div style="display: flex; justify-content: space-between; gap: 8px; font-size: 14px"><span>Evaluating AI outputs</span><span>44%</span></div><div style="height: 8px; border-radius: 999px; background: #E6EAE8; margin-top: 4px"><div style="width: 44%; height: 8px; border-radius: 999px; background: #0E6A73"></div></div></div><div><div style="display: flex; justify-content: space-between; gap: 8px; font-size: 14px"><span>Ethical and responsible use</span><span>20%</span></div><div style="height: 8px; border-radius: 999px; background: #E6EAE8; margin-top: 4px"><div style="width: 20%; height: 8px; border-radius: 999px; background: #0E6A73"></div></div></div><div><div style="display: flex; justify-content: space-between; gap: 8px; font-size: 14px"><span>Sustainable AI use</span><span>8%</span></div><div style="height: 8px; border-radius: 999px; background: #E6EAE8; margin-top: 4px"><div style="width: 8%; height: 8px; border-radius: 999px; background: #0E6A73"></div></div></div></div>
+          <a href="#EduProgress" style="font-size: 14px">See all learners</a></section>
+      </div>
+
+      <h2 style="margin: 6px 0 0; font-size: 18px; font-weight: 700">My learning scenarios</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px">
+        <a href="#EduScenario" style="background: #FFFFFF; border: 1px solid #DCE1DE; border-radius: 14px; padding: 18px; text-decoration: none; color: #1B2421; display: flex; flex-direction: column; gap: 6px"><span style="font-size: 12px; font-weight: 600; color: #174D33">Running · 12 apprentices · 3 companies</span><span style="font-size: 16px; font-weight: 700">Using AI responsibly in maintenance work</span><span style="font-size: 14px; color: #56625D">3 phases · 9 activities · ends with a certificate</span></a>
+        <a href="#EduScenario" style="background: #FFFFFF; border: 1px solid #DCE1DE; border-radius: 14px; padding: 18px; text-decoration: none; color: #1B2421; display: flex; flex-direction: column; gap: 6px"><span style="font-size: 12px; font-weight: 600; color: #56625D">Draft · shared with my educator group</span><span style="font-size: 16px; font-weight: 700">AI for writing fault reports</span><span style="font-size: 14px; color: #56625D">2 phases · 4 activities</span></a>
+      </div>
+    </main>
+  </div>
+</div>
+
+
+</div></section><section class="screen" id="EduResults" data-title="E2. Learning scenarios found in the library"><div class="label">E2. Learning scenarios found in the library</div><div class="frame" style="width:1280px">
+
+
+
+
+
+<div style="font-family: Inter, system-ui, sans-serif; color: #1B2421; background: #F4F5F3; min-height: 760px">
+  <header style="background: #FFFFFF; border-bottom: 1px solid #DCE1DE; padding: 12px 24px; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap">
+    <div style="display: flex; align-items: center; gap: 12px"><div style="width: 32px; height: 32px; border-radius: 8px; background: #0E6A73; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px">AP</div><div style="font-size: 15px; font-weight: 600">AIM PRO</div></div>
+    <div style="display: flex; align-items: center; gap: 16px; font-size: 13px; color: #56625D">
+      <label for="EduResults-lang" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Language</label>
+      <select id="EduResults-lang" style="height: 36px; border: 1px solid #C9D0CC; border-radius: 8px; padding: 0 8px; font: inherit; background: #FFFFFF"><option>English</option><option>Italiano</option><option>Español</option><option>Ελληνικά</option></select>
+      <span>Marco · VET trainer · Maintenance programme</span>
+    </div>
+  </header>
+  <div style="display: flex; flex-wrap: wrap">
+    <nav aria-label="Main" style="flex: 1 1 220px; max-width: 260px; padding: 20px 12px; display: flex; flex-direction: column; gap: 4px; box-sizing: border-box">
+      <a href="#EduHome" style="padding: 10px 12px; border-radius: 8px; color: #1B2421; font-size: 14px; text-decoration: none">Home</a><a href="#EduScenario" style="padding: 10px 12px; border-radius: 8px; background: #DCEDEE; color: #0A4F56; font-weight: 600; font-size: 14px; text-decoration: none">Learning scenarios</a><a href="#EduActivity" style="padding: 10px 12px; border-radius: 8px; color: #1B2421; font-size: 14px; text-decoration: none">Activities</a><a href="#EduResources" style="padding: 10px 12px; border-radius: 8px; color: #1B2421; font-size: 14px; text-decoration: none">Resources</a><a href="#EduProgress" style="padding: 10px 12px; border-radius: 8px; color: #1B2421; font-size: 14px; text-decoration: none">Learners and competencies</a>
+      <div style="margin-top: 16px; padding: 12px; border-radius: 10px; background: #FFFFFF; border: 1px solid #DCE1DE; font-size: 13px; line-height: 1.45; color: #3F4A45">My educator group: <strong>Maintenance programme</strong><br>2 VET trainers, 3 company mentors</div>
+    </nav>
+    <main style="flex: 999 1 560px; min-width: 0; padding: 28px 24px 56px; display: flex; flex-direction: column; gap: 18px; max-width: 1000px">
+      <a href="#EduHome" style="font-size: 14px; align-self: flex-start">Back to my request</a>
+      <section style="background: #FFFFFF; border: 1px solid #DCE1DE; border-radius: 12px; padding: 18px 20px; display: flex; flex-direction: column; gap: 10px; "><div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap"><h2 style="margin: 0; font-size: 16px; font-weight: 700">What I understood</h2><a href="#EduHome" style="font-size: 14px">Change</a></div>
+        <dl style="margin: 0; display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 8px 16px; font-size: 15px; line-height: 1.5">
+          <dt style="font-weight: 600; color: #3F4A45">Context</dt><dd style="margin: 0">Dual VET programme: vocational school + local companies</dd>
+          <dt style="font-weight: 600; color: #3F4A45">Learners</dt><dd style="margin: 0">Year 1 maintenance apprentices · new to AI · use phones at work</dd>
+          <dt style="font-weight: 600; color: #3F4A45">Competencies</dt><dd style="margin: 0">Using AI effectively · Evaluating AI outputs · Ethical and responsible use</dd>
+          <dt style="font-weight: 600; color: #3F4A45">Length</dt><dd style="margin: 0">About 4 weeks, with a certificate</dd>
+        </dl></section>
+      <h1 style="margin: 8px 0 0; font-size: 24px; font-weight: 700">3 learning scenarios found</h1>
+      <p style="margin: 0; font-size: 14px; color: #56625D">From the AIM PRO library of open, quality-checked scenarios. Best match first.</p>
+      <article style="background: #FFFFFF; border: 2px solid #0E6A73; border-radius: 12px; padding: 20px 24px; display: flex; flex-direction: column; gap: 8px">
+        <div style="display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; align-items: baseline"><h3 style="margin: 0; font-size: 18px; font-weight: 700">1. Using AI responsibly at work (VET)</h3><span style="font-size: 14px; color: #3F4A45">4 weeks · 3 phases · VET</span></div>
+        <p style="margin: 0; font-size: 15px; line-height: 1.5">Apprentices learn how generative AI works, use it on real workplace tasks with their mentor, and learn when and how to use it responsibly.</p>
+        <p style="margin: 0; font-size: 14px; line-height: 1.5; background: #E1F2E8; color: #174D33; border-radius: 8px; padding: 8px 12px"><strong>Why it fits:</strong> same competencies and length, made for dual VET.</p>
+        <div><a href="#EduScenario" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 20px; border-radius: 10px; background: #0E6A73; color: #FFFFFF; font-weight: 600; font-size: 15px; text-decoration: none">Adapt this scenario</a></div>
+      </article>
+      <article style="background: #FFFFFF; border: 1px solid #DCE1DE; border-radius: 12px; padding: 20px 24px; display: flex; flex-direction: column; gap: 8px">
+        <div style="display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; align-items: baseline"><h3 style="margin: 0; font-size: 18px; font-weight: 700">2. AI for small business staff</h3><span style="font-size: 14px; color: #3F4A45">2 weeks · 2 phases · SMEs</span></div>
+        <p style="margin: 0; font-size: 15px; line-height: 1.5">Short scenario for employees: everyday AI tools, checking outputs, and data protection.</p>
+        <p style="margin: 0; font-size: 14px; line-height: 1.5; background: #F4F5F3; color: #3F4A45; border-radius: 8px; padding: 8px 12px"><strong>Why it fits:</strong> same competencies, but made for people already working.</p>
+        <div><a href="#EduScenario" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; border-radius: 10px; border: 1px solid #C9D0CC; background: #FFFFFF; color: #1B2421; font-size: 15px; text-decoration: none">Adapt this scenario</a></div>
+      </article>
+      <article style="background: #FFFFFF; border: 1px solid #DCE1DE; border-radius: 12px; padding: 20px 24px; display: flex; flex-direction: column; gap: 8px">
+        <div style="display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; align-items: baseline"><h3 style="margin: 0; font-size: 18px; font-weight: 700">3. Generative AI in your future profession</h3><span style="font-size: 14px; color: #3F4A45">4 weeks · 3 phases · HE</span></div>
+        <p style="margin: 0; font-size: 15px; line-height: 1.5">University students use AI on tasks from their own field and learn to use it responsibly.</p>
+        <p style="margin: 0; font-size: 14px; line-height: 1.5; background: #F4F5F3; color: #3F4A45; border-radius: 8px; padding: 8px 12px"><strong>Why it fits:</strong> same competencies, but made for university students.</p>
+        <div><a href="#EduScenario" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; border-radius: 10px; border: 1px solid #C9D0CC; background: #FFFFFF; color: #1B2421; font-size: 15px; text-decoration: none">Adapt this scenario</a></div>
+      </article>
+      <div style="border: 1px dashed #A9B3AE; border-radius: 12px; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; background: #FAFBFA"><span style="font-size: 15px"><strong>None of these fits?</strong> The assistant can draft a new scenario from your request.</span><a href="#NewBasics" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; border-radius: 10px; border: 1px solid #C9D0CC; background: #FFFFFF; color: #1B2421; font-size: 15px; text-decoration: none">Create a new scenario</a></div>
+    </main>
+  </div>
+</div>
+
+
+</div></section><section class="screen" id="EduScenario" data-title="E3. Learning scenario: context, phases, goals, activities"><div class="label">E3. Learning scenario: context, phases, goals, activities</div><div class="frame" style="width:1280px">
+
+
+
+
+
+<div style="font-family: Inter, system-ui, sans-serif; color: #1B2421; background: #F4F5F3; min-height: 760px">
+  <header style="background: #FFFFFF; border-bottom: 1px solid #DCE1DE; padding: 12px 24px; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap">
+    <div style="display: flex; align-items: center; gap: 12px"><div style="width: 32px; height: 32px; border-radius: 8px; background: #0E6A73; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px">AP</div><div style="font-size: 15px; font-weight: 600">AIM PRO</div></div>
+    <div style="display: flex; align-items: center; gap: 16px; font-size: 13px; color: #56625D">
+      <label for="EduScenario-lang" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Language</label>
+      <select id="EduScenario-lang" style="height: 36px; border: 1px solid #C9D0CC; border-radius: 8px; padding: 0 8px; font: inherit; background: #FFFFFF"><option>English</option><option>Italiano</option><option>Español</option><option>Ελληνικά</option></select>
+      <span>Marco · VET trainer · Maintenance programme</span>
+    </div>
+  </header>
+  <div style="display: flex; flex-wrap: wrap">
+    <nav aria-label="Main" style="flex: 1 1 220px; max-width: 260px; padding: 20px 12px; display: flex; flex-direction: column; gap: 4px; box-sizing: border-box">
+      <a href="#EduHome" style="padding: 10px 12px; border-radius: 8px; color: #1B2421; font-size: 14px; text-decoration: none">Home</a><a href="#EduScenario" style="padding: 10px 12px; border-radius: 8px; background: #DCEDEE; color: #0A4F56; font-weight: 600; font-size: 14px; text-decoration: none">Learning scenarios</a><a href="#EduActivity" style="padding: 10px 12px; border-radius: 8px; color: #1B2421; font-size: 14px; text-decoration: none">Activities</a><a href="#EduResources" style="padding: 10px 12px; border-radius: 8px; color: #1B2421; font-size: 14px; text-decoration: none">Resources</a><a href="#EduProgress" style="padding: 10px 12px; border-radius: 8px; color: #1B2421; font-size: 14px; text-decoration: none">Learners and competencies</a>
+      <div style="margin-top: 16px; padding: 12px; border-radius: 10px; background: #FFFFFF; border: 1px solid #DCE1DE; font-size: 13px; line-height: 1.45; color: #3F4A45">My educator group: <strong>Maintenance programme</strong><br>2 VET trainers, 3 company mentors</div>
+    </nav>
+    <main style="flex: 999 1 560px; min-width: 0; padding: 28px 24px 56px; display: flex; flex-direction: column; gap: 18px; max-width: 1000px">
+      <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start">
+      <div style="flex: 999 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 14px">
+        <div style="display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; align-items: flex-start">
+          <div><div style="font-size: 13px; color: #56625D">Learning scenario</div><h1 style="margin: 2px 0 0; font-size: 26px; font-weight: 700">Using AI responsibly in maintenance work</h1></div>
+          <a href="#EduProgress" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 20px; border-radius: 10px; background: #0E6A73; color: #FFFFFF; font-weight: 600; font-size: 15px; text-decoration: none">Assign to learners</a>
+        </div>
+        <section style="background: #FFFFFF; border: 1px solid #DCE1DE; border-radius: 12px; padding: 18px 20px; display: flex; flex-direction: column; gap: 10px; padding: 16px 20px"><dl style="margin: 0; display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 8px 16px; font-size: 14px; line-height: 1.5">
+            <dt style="font-weight: 600; color: #3F4A45">Context</dt><dd style="margin: 0">Dual VET programme: vocational school + 3 local companies</dd>
+            <dt style="font-weight: 600; color: #3F4A45">For which learners</dt><dd style="margin: 0">Year 1 maintenance apprentices · new to AI · use phones at work</dd>
+            <dt style="font-weight: 600; color: #3F4A45">Learning goals</dt><dd style="margin: 0">3 goals, 5 competencies</dd>
+            <dt style="font-weight: 600; color: #3F4A45">Finishes with</dt><dd style="margin: 0">Certificate "AIM PRO AI literacy for professionals, level 1"</dd>
+            <dt style="font-weight: 600; color: #3F4A45">Languages</dt><dd style="margin: 0">Italian, English</dd>
+          </dl></section>
+        <section style="background: #FFFFFF; border: 1px solid #DCE1DE; border-radius: 12px; overflow: hidden">
+          <div style="padding: 14px 20px; background: #F4F5F3; display: flex; flex-direction: column; gap: 6px">
+            <div style="display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap"><h2 style="margin: 0; font-size: 16px; font-weight: 700">Phase 1 · Understand AI</h2><span style="font-size: 13px; color: #3F4A45">Goal: explain what generative AI is and what it cannot do</span></div>
+            <div style="display: flex; gap: 6px; flex-wrap: wrap; align-items: center"><span style="font-size: 12px; color: #56625D">Competencies:</span><span style="padding: 3px 10px; border-radius: 999px; background: #FFFFFF; border: 1px solid #C9D0CC; font-size: 12px">Understanding AI</span></div>
+          </div>
+          <ol style="list-style: none; margin: 0; padding: 0"><li style="display: flex; gap: 12px; align-items: center; padding: 11px 20px; border-top: 1px solid #E6EAE8; flex-wrap: wrap"><span style="min-width: 170px; font-size: 12px; font-weight: 600; color: #2B4C8C">LECTURE</span><span style="flex: 1; font-size: 15px">What is generative AI?</span><span style="font-size: 13px; color: #56625D">10 min</span></li><li style="display: flex; gap: 12px; align-items: center; padding: 11px 20px; border-top: 1px solid #E6EAE8; flex-wrap: wrap"><span style="min-width: 170px; font-size: 12px; font-weight: 600; color: #2B4C8C">TUTORIAL</span><span style="flex: 1; font-size: 15px">How to ask AI a clear question</span><span style="font-size: 13px; color: #56625D">15 min</span></li><li style="display: flex; gap: 12px; align-items: center; padding: 11px 20px; border-top: 1px solid #E6EAE8; flex-wrap: wrap"><span style="min-width: 170px; font-size: 12px; font-weight: 600; color: #2B4C8C">QUIZ</span><span style="flex: 1; font-size: 15px">AI at work: true or false?</span><span style="font-size: 13px; color: #56625D">5 min</span></li></ol>
+        </section><section style="background: #FFFFFF; border: 2px solid #0E6A73; border-radius: 12px; overflow: hidden">
+          <div style="padding: 14px 20px; background: #DCEDEE; display: flex; flex-direction: column; gap: 6px">
+            <div style="display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap"><h2 style="margin: 0; font-size: 16px; font-weight: 700">Phase 2 · Use AI at work</h2><span style="font-size: 13px; color: #3F4A45">Goal: use AI on real tasks and check what it gives you</span></div>
+            <div style="display: flex; gap: 6px; flex-wrap: wrap; align-items: center"><span style="font-size: 12px; color: #56625D">Competencies:</span><span style="padding: 3px 10px; border-radius: 999px; background: #FFFFFF; border: 1px solid #C9D0CC; font-size: 12px">Using AI effectively</span><span style="padding: 3px 10px; border-radius: 999px; background: #FFFFFF; border: 1px solid #C9D0CC; font-size: 12px">Evaluating AI outputs</span></div>
+          </div>
+          <ol style="list-style: none; margin: 0; padding: 0"><li style="display: flex; gap: 12px; align-items: center; padding: 11px 20px; border-top: 1px solid #E6EAE8; flex-wrap: wrap"><span style="min-width: 170px; font-size: 12px; font-weight: 600; color: #7A4200">WORKPLACE TASK</span><a href="#EduActivity" style="flex: 1; font-size: 15px; font-weight: 600">Noisy conveyor belt motor</a><span style="font-size: 13px; color: #56625D">15 min</span></li><li style="display: flex; gap: 12px; align-items: center; padding: 11px 20px; border-top: 1px solid #E6EAE8; flex-wrap: wrap"><span style="min-width: 170px; font-size: 12px; font-weight: 600; color: #7A4200">WORKPLACE TASK</span><span style="flex: 1; font-size: 15px">Checking the compressor air filter</span><span style="font-size: 13px; color: #56625D">10 min</span></li><li style="display: flex; gap: 12px; align-items: center; padding: 11px 20px; border-top: 1px solid #E6EAE8; flex-wrap: wrap"><span style="min-width: 170px; font-size: 12px; font-weight: 600; color: #7A3E9D">PEER REVIEW</span><span style="flex: 1; font-size: 15px">Compare your notes with a classmate</span><span style="font-size: 13px; color: #56625D">10 min</span></li></ol>
+        </section><section style="background: #FFFFFF; border: 1px solid #DCE1DE; border-radius: 12px; overflow: hidden">
+          <div style="padding: 14px 20px; background: #F4F5F3; display: flex; flex-direction: column; gap: 6px">
+            <div style="display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap"><h2 style="margin: 0; font-size: 16px; font-weight: 700">Phase 3 · Use AI responsibly</h2><span style="font-size: 13px; color: #3F4A45">Goal: decide when and how to use AI ethically and sustainably</span></div>
+            <div style="display: flex; gap: 6px; flex-wrap: wrap; align-items: center"><span style="font-size: 12px; color: #56625D">Competencies:</span><span style="padding: 3px 10px; border-radius: 999px; background: #FFFFFF; border: 1px solid #C9D0CC; font-size: 12px">Ethical and responsible use</span><span style="padding: 3px 10px; border-radius: 999px; background: #FFFFFF; border: 1px solid #C9D0CC; font-size: 12px">Sustainable AI use</span></div>
+          </div>
+          <ol style="list-style: none; margin: 0; padding: 0"><li style="display: flex; gap: 12px; align-items: center; padding: 11px 20px; border-top: 1px solid #E6EAE8; flex-wrap: wrap"><span style="min-width: 170px; font-size: 12px; font-weight: 600; color: #7A3E9D">COLLABORATIVE ACTIVITY</span><span style="flex: 1; font-size: 15px">Group case: AI advice and safety rules</span><span style="font-size: 13px; color: #56625D">30 min</span></li><li style="display: flex; gap: 12px; align-items: center; padding: 11px 20px; border-top: 1px solid #E6EAE8; flex-wrap: wrap"><span style="min-width: 170px; font-size: 12px; font-weight: 600; color: #174D33">CHALLENGE</span><span style="flex: 1; font-size: 15px">Do you really need AI for this?</span><span style="font-size: 13px; color: #56625D">20 min</span></li><li style="display: flex; gap: 12px; align-items: center; padding: 11px 20px; border-top: 1px solid #E6EAE8; flex-wrap: wrap"><span style="min-width: 170px; font-size: 12px; font-weight: 600; color: #174D33">AI-BASED ASSESSMENT</span><span style="flex: 1; font-size: 15px">Final check with your trainer</span><span style="font-size: 13px; color: #56625D">20 min</span></li></ol>
+        </section>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap">
+          <button type="button" style="min-height: 44px; padding: 0 16px; border-radius: 10px; border: 1px dashed #A9B3AE; background: #FAFBFA; font: inherit; font-size: 14px">Add a phase</button>
+          <a href="#EduActivity" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 10px; border: 1px dashed #A9B3AE; background: #FAFBFA; color: #1B2421; font-size: 14px; text-decoration: none">Add an activity</a>
+        </div>
+      </div>
+      <aside style="flex: 1 1 240px; background: #FFFFFF; border: 1px solid #DCE1DE; border-radius: 12px; padding: 18px; display: flex; flex-direction: column; gap: 12px">
+        <h2 style="margin: 0; font-size: 15px; font-weight: 700">Assistant suggestions</h2>
+        <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #3F4A45">"Evaluating AI outputs" needs "Understanding AI" first. Phase 1 covers it.</p>
+        <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #3F4A45; border-top: 1px solid #E6EAE8; padding-top: 12px">4 apprentices prefer listening. Add an audio version of the Phase 1 lecture?</p>
+        <button type="button" style="min-height: 40px; border-radius: 8px; border: 1px solid #C9D0CC; background: #FFFFFF; font: inherit; font-size: 14px">Add audio version</button>
+        <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #3F4A45; border-top: 1px solid #E6EAE8; padding-top: 12px">Phase 1 has no activity where learners work together.</p>
+        <p style="margin: 0; font-size: 13px; color: #56625D; border-top: 1px solid #E6EAE8; padding-top: 12px">Total learning time: about 2 h 30 min over 4 weeks</p>
+      </aside>
+      </div>
+    </main>
+  </div>
+</div>
+
+
+</div></section><section class="screen" id="EduActivity" data-title="E4. Activity editor: workplace task"><div class="label">E4. Activity editor: workplace task</div><div class="frame" style="width:1280px">
+
+
+
+
+
+<div style="font-family: Inter, system-ui, sans-serif; color: #1B2421; background: #F4F5F3; min-height: 760px">
+  <header style="background: #FFFFFF; border-bottom: 1px solid #DCE1DE; padding: 12px 24px; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap">
+    <div style="display: flex; align-items: center; gap: 12px"><div style="width: 32px; height: 32px; border-radius: 8px; background: #0E6A73; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px">AP</div><div style="font-size: 15px; font-weight: 600">AIM PRO</div></div>
+    <div style="display: flex; align-items: center; gap: 16px; font-size: 13px; color: #56625D">
+      <label for="EduActivity-lang" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Language</label>
+      <select id="EduActivity-lang" style="height: 36px; border: 1px solid #C9D0CC; border-radius: 8px; padding: 0 8px; font: inherit; background: #FFFFFF"><option>English</option><option>Italiano</option><option>Español</option><option>Ελληνικά</option></select>
+      <span>Marco · VET trainer · Maintenance programme</span>
+    </div>
+  </header>
+  <div style="display: flex; flex-wrap: wrap">
+    <nav aria-label="Main" style="flex: 1 1 220px; max-width: 260px; padding: 20px 12px; display: flex; flex-direction: column; gap: 4px; box-sizing: border-box">
+      <a href="#EduHome" style="padding: 10px 12px; border-radius: 8px; color: #1B2421; font-size: 14px; text-decoration: none">Home</a><a href="#EduScenario" style="padding: 10px 12px; border-radius: 8px; color: #1B2421; font-size: 14px; text-decoration: none">Learning scenarios</a><a href="#EduActivity" style="padding: 10px 12px; border-radius: 8px; background: #DCEDEE; color: #0A4F56; font-weight: 600; font-size: 14px; text-decoration: none">Activities</a><a href="#EduResources" style="padding: 10px 12px; border-radius: 8px; color: #1B2421; font-size: 14px; text-decoration: none">Resources</a><a href="#EduProgress" style="padding: 10px 12px; border-radius: 8px; color: #1B2421; font-size: 14px; text-decoration: none">Learners and competencies</a>
+      <div style="margin-top: 16px; padding: 12px; border-radius: 10px; background: #FFFFFF; border: 1px solid #DCE1DE; font-size: 13px; line-height: 1.45; color: #3F4A45">My educator group: <strong>Maintenance programme</strong><br>2 VET trainers, 3 company mentors</div>
+    </nav>
+    <main style="flex: 999 1 560px; min-width: 0; padding: 28px 24px 56px; display: flex; flex-direction: column; gap: 18px; max-width: 1000px">
+      <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap">
+        <a href="#EduScenario" style="font-size: 14px">Back to the scenario · Phase 2</a>
+        <span style="padding: 4px 12px; border-radius: 999px; background: #FCEBD3; color: #7A4200; font-size: 13px; font-weight: 600">Draft from the assistant · waiting for your approval</span>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start">
+        <article style="flex: 999 1 460px; min-width: 0; background: #FFFFFF; border: 1px solid #DCE1DE; border-radius: 8px; padding: 26px 30px; display: flex; flex-direction: column; gap: 16px; box-sizing: border-box">
+          <div style="display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; align-items: baseline; border-bottom: 2px solid #1B2421; padding-bottom: 12px">
+            <h1 style="margin: 0; font-size: 24px; font-weight: 700">Noisy conveyor belt motor</h1>
+            <span style="font-size: 14px; color: #3F4A45">Workplace task · 15 minutes</span>
+          </div>
+          <div>
+            <h2 style="margin: 0 0 4px; font-size: 13px; text-transform: uppercase; letter-spacing: 0.04em; color: #56625D">Scenario</h2>
+            <p style="margin: 0; font-size: 16px; line-height: 1.6">The motor of a conveyor belt in the company is making a strange noise.</p>
+          </div>
+          <div>
+            <h2 style="margin: 0 0 6px; font-size: 13px; text-transform: uppercase; letter-spacing: 0.04em; color: #56625D">What to do</h2>
+            <ol style="margin: 0; padding-left: 22px; font-size: 16px; line-height: 1.65; display: flex; flex-direction: column; gap: 6px">
+              <li>Ask your usual AI tool: <strong>"What can cause a strange noise in a conveyor belt motor?"</strong> Write the causes it gives in your notes.</li>
+              <li>Look up each cause in the troubleshooting page of the manual. Write what the manual says.</li>
+              <li>Show your notes to your mentor. Write down what the mentor says about each cause.</li>
+              <li>With your mentor, mark which cause you will check first.</li>
+            </ol>
+          </div>
+          <div style="background: #E1F2E8; border: 1px solid #B9DEC9; border-radius: 8px; padding: 12px 16px; font-size: 15px; line-height: 1.5; color: #174D33"><strong>Reward:</strong> complete all the checks to earn the Double-checker badge. It rewards checking, not whether the AI was right.</div>
+          <div style="display: flex; flex-wrap: wrap; gap: 12px">
+            <a href="#EduScenario" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 20px; border-radius: 10px; background: #0E6A73; color: #FFFFFF; font-weight: 600; font-size: 15px; text-decoration: none">Approve and add to Phase 2</a>
+            <button type="button" style="min-height: 44px; padding: 0 18px; border-radius: 10px; border: 1px solid #C9D0CC; background: #FFFFFF; font: inherit; font-size: 15px">Edit</button>
+            <button type="button" style="min-height: 44px; padding: 0 18px; border-radius: 10px; border: 1px solid #C9D0CC; background: #FFFFFF; font: inherit; font-size: 15px">Make it simpler</button>
+          </div>
+        </article>
+        <aside style="flex: 1 1 280px; display: flex; flex-direction: column; gap: 12px">
+          <section style="background: #FFFFFF; border: 1px solid #DCE1DE; border-radius: 12px; padding: 18px 20px; display: flex; flex-direction: column; gap: 10px; padding: 16px"><label for="EduActivity-type" style="font-size: 13px; font-weight: 600; color: #3F4A45">Activity type</label>
+            <select id="EduActivity-type" style="height: 44px; border: 1px solid #C9D0CC; border-radius: 8px; padding: 0 10px; font: inherit; font-size: 15px; background: #FFFFFF"><option>Workplace task</option><option>Tutorial</option><option>Exercise</option><option>Collaborative activity</option><option>Challenge</option><option>Peer review</option><option>Self-assessment</option><option>Lecture</option></select>
+            <div style="font-size: 13px; color: #56625D">Part of: Phase 2 · Use AI at work · Next: "Checking the compressor air filter"</div></section>
+          <section style="background: #FFFFFF; border: 1px solid #DCE1DE; border-radius: 12px; padding: 18px 20px; display: flex; flex-direction: column; gap: 10px; padding: 16px"><h2 style="margin: 0; font-size: 13px; font-weight: 600; color: #3F4A45">Competencies it builds</h2>
+            <div style="display: flex; flex-wrap: wrap; gap: 6px"><span style="padding: 6px 12px; border-radius: 999px; background: #DCEDEE; color: #0A4F56; font-size: 13px; font-weight: 600">Evaluating AI outputs</span><span style="padding: 6px 12px; border-radius: 999px; background: #DCEDEE; color: #0A4F56; font-size: 13px; font-weight: 600">Using AI effectively</span></div></section>
+          <section style="background: #FFFFFF; border: 1px solid #DCE1DE; border-radius: 12px; padding: 18px 20px; display: flex; flex-direction: column; gap: 10px; padding: 16px"><h2 style="margin: 0; font-size: 13px; font-weight: 600; color: #3F4A45">Resources</h2>
+            <div style="font-size: 14px; line-height: 1.5"><span style="font-size: 12px; color: #7A4200; font-weight: 600">WORKPLACE MATERIAL</span><br>Conveyor manual, troubleshooting page</div>
+            <div style="font-size: 14px; line-height: 1.5"><span style="font-size: 12px; color: #2B4C8C; font-weight: 600">OPEN EDUCATIONAL RESOURCE</span><br>Video: "Can I trust this AI answer?"</div>
+            <div style="font-size: 14px; line-height: 1.5"><span style="font-size: 12px; color: #56625D; font-weight: 600">TEMPLATE</span><br>Notes: cause, manual, mentor, check first</div>
+            <a href="#EduResources" style="font-size: 14px">Add a resource</a></section>
+          <section style="background: #FFFFFF; border: 1px solid #DCE1DE; border-radius: 12px; padding: 18px 20px; display: flex; flex-direction: column; gap: 10px; padding: 16px"><div style="font-size: 14px; line-height: 1.5"><h2 style="margin: 0; font-size: 13px; font-weight: 600; color: #3F4A45">Learners need</h2>A phone at the workplace · a mentor available</div>
+            <div style="font-size: 14px; line-height: 1.5"><h2 style="margin: 0; font-size: 13px; font-weight: 600; color: #3F4A45">Learners produce</h2>Their notes (saved in their portfolio)</div>
+            <div style="font-size: 14px; line-height: 1.5"><h2 style="margin: 0; font-size: 13px; font-weight: 600; color: #3F4A45">How it is assessed</h2>The mentor confirms the notes. Marco gives the final OK.</div></section>
+        </aside>
+      </div>
+    </main>
+  </div>
+</div>
+
+
+</div></section><section class="screen" id="EduResources" data-title="E5. Resource library"><div class="label">E5. Resource library</div><div class="frame" style="width:1280px">
+
+
+
+
+
+<div style="font-family: Inter, system-ui, sans-serif; color: #1B2421; background: #F4F5F3; min-height: 760px">
+  <header style="background: #FFFFFF; border-bottom: 1px solid #DCE1DE; padding: 12px 24px; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap">
+    <div style="display: flex; align-items: center; gap: 12px"><div style="width: 32px; height: 32px; border-radius: 8px; background: #0E6A73; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px">AP</div><div style="font-size: 15px; font-weight: 600">AIM PRO</div></div>
+    <div style="display: flex; align-items: center; gap: 16px; font-size: 13px; color: #56625D">
+      <label for="EduResources-lang" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Language</label>
+      <select id="EduResources-lang" style="height: 36px; border: 1px solid #C9D0CC; border-radius: 8px; padding: 0 8px; font: inherit; background: #FFFFFF"><option>English</option><option>Italiano</option><option>Español</option><option>Ελληνικά</option></select>
+      <span>Marco · VET trainer · Maintenance programme</span>
+    </div>
+  </header>
+  <div style="display: flex; flex-wrap: wrap">
+    <nav aria-label="Main" style="flex: 1 1 220px; max-width: 260px; padding: 20px 12px; display: flex; flex-direction: column; gap: 4px; box-sizing: border-box">
+      <a href="#EduHome" style="padding: 10px 12px; border-radius: 8px; color: #1B2421; font-size: 14px; text-decoration: none">Home</a><a href="#EduScenario" style="padding: 10px 12px; border-radius: 8px; color: #1B2421; font-size: 14px; text-decoration: none">Learning scenarios</a><a href="#EduActivity" style="padding: 10px 12px; border-radius: 8px; color: #1B2421; font-size: 14px; text-decoration: none">Activities</a><a href="#EduResources" style="padding: 10px 12px; border-radius: 8px; background: #DCEDEE; color: #0A4F56; font-weight: 600; font-size: 14px; text-decoration: none">Resources</a><a href="#EduProgress" style="padding: 10px 12px; border-radius: 8px; color: #1B2421; font-size: 14px; text-decoration: none">Learners and competencies</a>
+      <div style="margin-top: 16px; padding: 12px; border-radius: 10px; background: #FFFFFF; border: 1px solid #DCE1DE; font-size: 13px; line-height: 1.45; color: #3F4A45">My educator group: <strong>Maintenance programme</strong><br>2 VET trainers, 3 company mentors</div>
+    </nav>
+    <main style="flex: 999 1 560px; min-width: 0; padding: 28px 24px 56px; display: flex; flex-direction: column; gap: 18px; max-width: 1000px">
+      <div style="display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; align-items: center">
+        <h1 style="margin: 0; font-size: 26px; font-weight: 700">Resources</h1>
+        <button type="button" style="min-height: 44px; padding: 0 18px; border-radius: 10px; border: 0; background: #0E6A73; color: #FFFFFF; font: inherit; font-size: 15px; font-weight: 600">Upload my own</button>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 6px">
+        <label for="EduResources-q" style="font-size: 14px; font-weight: 600">Search the AIM PRO library and open educational resources</label>
+        <input id="EduResources-q" value="evaluating AI outputs" style="height: 46px; border: 1px solid #C9D0CC; border-radius: 10px; padding: 0 14px; font: inherit; font-size: 15px; background: #FFFFFF">
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px" aria-label="Filter by type"><button type="button" aria-pressed="true" style="min-height: 36px; padding: 0 14px; border-radius: 999px; border: 2px solid #0E6A73; background: #DCEDEE; color: #0A4F56; font: inherit; font-size: 13px; font-weight: 600">All</button><button type="button" style="min-height: 36px; padding: 0 14px; border-radius: 999px; border: 1px solid #C9D0CC; background: #FFFFFF; font: inherit; font-size: 13px">Open educational resource</button><button type="button" style="min-height: 36px; padding: 0 14px; border-radius: 999px; border: 1px solid #C9D0CC; background: #FFFFFF; font: inherit; font-size: 13px">Workplace material</button><button type="button" style="min-height: 36px; padding: 0 14px; border-radius: 999px; border: 1px solid #C9D0CC; background: #FFFFFF; font: inherit; font-size: 13px">Template</button><button type="button" style="min-height: 36px; padding: 0 14px; border-radius: 999px; border: 1px solid #C9D0CC; background: #FFFFFF; font: inherit; font-size: 13px">Tool</button><button type="button" style="min-height: 36px; padding: 0 14px; border-radius: 999px; border: 1px solid #C9D0CC; background: #FFFFFF; font: inherit; font-size: 13px">Dataset</button><button type="button" style="min-height: 36px; padding: 0 14px; border-radius: 999px; border: 1px solid #C9D0CC; background: #FFFFFF; font: inherit; font-size: 13px">Code sample</button><button type="button" style="min-height: 36px; padding: 0 14px; border-radius: 999px; border: 1px solid #C9D0CC; background: #FFFFFF; font: inherit; font-size: 13px">Review</button></div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px">
+        <article style="background: #FFFFFF; border: 1px solid #DCE1DE; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 6px">
+          <span style="font-size: 12px; font-weight: 600; color: #2B4C8C">OPEN EDUCATIONAL RESOURCE · CC BY</span>
+          <span style="font-size: 16px; font-weight: 700">Can I trust this AI answer?</span>
+          <span style="font-size: 14px; color: #3F4A45">4-minute video · EN, IT, ES, EL subtitles · quality checked</span>
+          <a href="#EduActivity" style="align-self: flex-start; margin-top: 6px; font-size: 14px; font-weight: 600">Add to activity</a>
+        </article>
+        <article style="background: #FFFFFF; border: 1px solid #DCE1DE; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 6px">
+          <span style="font-size: 12px; font-weight: 600; color: #2B4C8C">OPEN EDUCATIONAL RESOURCE · CC BY-SA</span>
+          <span style="font-size: 16px; font-weight: 700">AI ethics in 10 short cases</span>
+          <span style="font-size: 14px; color: #3F4A45">Text and slides · used by 230 educators</span>
+          <a href="#EduActivity" style="align-self: flex-start; margin-top: 6px; font-size: 14px; font-weight: 600">Add to activity</a>
+        </article>
+        <article style="background: #FFFFFF; border: 1px solid #DCE1DE; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 6px">
+          <span style="font-size: 12px; font-weight: 600; color: #56625D">TEMPLATE</span>
+          <span style="font-size: 16px; font-weight: 700">AI use log</span>
+          <span style="font-size: 14px; color: #3F4A45">What I asked, what AI said, what I checked, what I changed</span>
+          <a href="#EduActivity" style="align-self: flex-start; margin-top: 6px; font-size: 14px; font-weight: 600">Add to activity</a>
+        </article>
+        <article style="background: #FFFFFF; border: 1px solid #DCE1DE; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 6px">
+          <span style="font-size: 12px; font-weight: 600; color: #174D33">DATASET</span>
+          <span style="font-size: 16px; font-weight: 700">Sample customer reviews (anonymised)</span>
+          <span style="font-size: 14px; color: #3F4A45">For exercises on AI summaries and bias</span>
+          <a href="#EduActivity" style="align-self: flex-start; margin-top: 6px; font-size: 14px; font-weight: 600">Add to activity</a>
+        </article>
+        <article style="background: #FFFFFF; border: 1px solid #DCE1DE; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 6px">
+          <span style="font-size: 12px; font-weight: 600; color: #174D33">TOOL · LOW ENERGY</span>
+          <span style="font-size: 16px; font-weight: 700">Simple search and spell-check</span>
+          <span style="font-size: 14px; color: #3F4A45">Often enough without generative AI. Good for green AI activities.</span>
+          <a href="#EduActivity" style="align-self: flex-start; margin-top: 6px; font-size: 14px; font-weight: 600">Add to activity</a>
+        </article>
+        <article style="background: #FFFFFF; border: 1px solid #DCE1DE; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 6px">
+          <span style="font-size: 12px; font-weight: 600; color: #7A4200">WORKPLACE MATERIAL · PARTNER COMPANY</span>
+          <span style="font-size: 16px; font-weight: 700">Company guidelines for AI use</span>
+          <span style="font-size: 14px; color: #3F4A45">Shared by a company tutor · 3 pages</span>
+          <a href="#EduActivity" style="align-self: flex-start; margin-top: 6px; font-size: 14px; font-weight: 600">Add to activity</a>
+        </article>
+      </div>
+    </main>
+  </div>
+</div>
+
+
+</div></section><section class="screen" id="EduProgress" data-title="E6. Learners and competencies"><div class="label">E6. Learners and competencies</div><div class="frame" style="width:1280px">
+
+
+
+
+
+<div style="font-family: Inter, system-ui, sans-serif; color: #1B2421; background: #F4F5F3; min-height: 760px">
+  <header style="background: #FFFFFF; border-bottom: 1px solid #DCE1DE; padding: 12px 24px; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap">
+    <div style="display: flex; align-items: center; gap: 12px"><div style="width: 32px; height: 32px; border-radius: 8px; background: #0E6A73; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px">AP</div><div style="font-size: 15px; font-weight: 600">AIM PRO</div></div>
+    <div style="display: flex; align-items: center; gap: 16px; font-size: 13px; color: #56625D">
+      <label for="EduProgress-lang" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Language</label>
+      <select id="EduProgress-lang" style="height: 36px; border: 1px solid #C9D0CC; border-radius: 8px; padding: 0 8px; font: inherit; background: #FFFFFF"><option>English</option><option>Italiano</option><option>Español</option><option>Ελληνικά</option></select>
+      <span>Marco · VET trainer · Maintenance programme</span>
+    </div>
+  </header>
+  <div style="display: flex; flex-wrap: wrap">
+    <nav aria-label="Main" style="flex: 1 1 220px; max-width: 260px; padding: 20px 12px; display: flex; flex-direction: column; gap: 4px; box-sizing: border-box">
+      <a href="#EduHome" style="padding: 10px 12px; border-radius: 8px; color: #1B2421; font-size: 14px; text-decoration: none">Home</a><a href="#EduScenario" style="padding: 10px 12px; border-radius: 8px; color: #1B2421; font-size: 14px; text-decoration: none">Learning scenarios</a><a href="#EduActivity" style="padding: 10px 12px; border-radius: 8px; color: #1B2421; font-size: 14px; text-decoration: none">Activities</a><a href="#EduResources" style="padding: 10px 12px; border-radius: 8px; color: #1B2421; font-size: 14px; text-decoration: none">Resources</a><a href="#EduProgress" style="padding: 10px 12px; border-radius: 8px; background: #DCEDEE; color: #0A4F56; font-weight: 600; font-size: 14px; text-decoration: none">Learners and competencies</a>
+      <div style="margin-top: 16px; padding: 12px; border-radius: 10px; background: #FFFFFF; border: 1px solid #DCE1DE; font-size: 13px; line-height: 1.45; color: #3F4A45">My educator group: <strong>Maintenance programme</strong><br>2 VET trainers, 3 company mentors</div>
+    </nav>
+    <main style="flex: 999 1 560px; min-width: 0; padding: 28px 24px 56px; display: flex; flex-direction: column; gap: 18px; max-width: 1000px">
+      <div><h1 style="margin: 0; font-size: 26px; font-weight: 700">Using AI responsibly in maintenance work</h1>
+      <p style="margin: 4px 0 0; font-size: 14px; color: #56625D">12 apprentices · 3 companies · now in Phase 2</p></div>
+      <section style="background: #FFFFFF; border: 1px solid #DCE1DE; border-radius: 12px; overflow: hidden">
+        <div style="padding: 14px 16px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; align-items: center">
+          <h2 style="margin: 0; font-size: 16px; font-weight: 700">Competency mastery</h2>
+          <label for="EduProgress-f" style="font-size: 13px; color: #56625D">Company <select id="EduProgress-f" style="height: 36px; border: 1px solid #C9D0CC; border-radius: 8px; font: inherit; margin-left: 6px"><option>All</option></select></label>
+        </div>
+        <div style="overflow-x: auto">
+          <table style="width: 100%; min-width: 720px; border-collapse: collapse">
+            <thead><tr style="background: #F4F5F3"><th>Apprentice</th><th>Understanding AI</th><th>Using AI effectively</th><th>Evaluating AI outputs</th><th>Ethical use</th><th>Certificate</th></tr></thead>
+            <tbody><tr><td><a href="#StuProfile" style="font-weight: 600">Elena</a><br><span style="color: #56625D">Company A</span></td><td><span style="padding: 3px 8px; border-radius: 6px; background: #1C5E3F; color: #FFFFFF; white-space: nowrap">Mastered</span></td><td><span style="padding: 3px 8px; border-radius: 6px; background: #B9DEC9; color: #174D33; white-space: nowrap">Practised</span></td><td><span style="padding: 3px 8px; border-radius: 6px; background: #B9DEC9; color: #174D33; white-space: nowrap">Practised</span></td><td><span style="padding: 3px 8px; border-radius: 6px; background: #FCEBD3; color: #7A4200; white-space: nowrap">Started</span></td><td>2 of 5</td></tr><tr><td><a href="#StuProfile" style="font-weight: 600">Nikos</a><br><span style="color: #56625D">Company B</span></td><td><span style="padding: 3px 8px; border-radius: 6px; background: #1C5E3F; color: #FFFFFF; white-space: nowrap">Mastered</span></td><td><span style="padding: 3px 8px; border-radius: 6px; background: #FCEBD3; color: #7A4200; white-space: nowrap">Started</span></td><td><span style="padding: 3px 8px; border-radius: 6px; background: #F4F5F3; color: #3F4A45; white-space: nowrap">Not started</span></td><td><span style="padding: 3px 8px; border-radius: 6px; background: #F4F5F3; color: #3F4A45; white-space: nowrap">Not started</span></td><td>1 of 5</td></tr><tr><td><a href="#StuProfile" style="font-weight: 600">Sofia</a><br><span style="color: #56625D">Company A</span></td><td><span style="padding: 3px 8px; border-radius: 6px; background: #B9DEC9; color: #174D33; white-space: nowrap">Practised</span></td><td><span style="padding: 3px 8px; border-radius: 6px; background: #FCEBD3; color: #7A4200; white-space: nowrap">Started</span></td><td><span style="padding: 3px 8px; border-radius: 6px; background: #F4F5F3; color: #3F4A45; white-space: nowrap">Not started</span></td><td><span style="padding: 3px 8px; border-radius: 6px; background: #F4F5F3; color: #3F4A45; white-space: nowrap">Not started</span></td><td>0 of 5</td></tr><tr><td><a href="#StuProfile" style="font-weight: 600">Luca</a><br><span style="color: #56625D">Company C</span></td><td><span style="padding: 3px 8px; border-radius: 6px; background: #1C5E3F; color: #FFFFFF; white-space: nowrap">Mastered</span></td><td><span style="padding: 3px 8px; border-radius: 6px; background: #B9DEC9; color: #174D33; white-space: nowrap">Practised</span></td><td><span style="padding: 3px 8px; border-radius: 6px; background: #FCEBD3; color: #7A4200; white-space: nowrap">Started</span></td><td><span style="padding: 3px 8px; border-radius: 6px; background: #F4F5F3; color: #3F4A45; white-space: nowrap">Not started</span></td><td>2 of 5</td></tr></tbody>
+          </table>
+        </div>
+        <div style="padding: 12px 16px; font-size: 14px"><a href="#EduProgress">Show all 12 apprentices</a></div>
+      </section>
+      <section style="background: #FFFFFF; border: 1px solid #DCE1DE; border-radius: 12px; padding: 18px 20px; display: flex; flex-direction: column; gap: 10px; padding: 16px"><h2 style="margin: 0; font-size: 16px; font-weight: 700">Apprentices' notes to review (4)</h2>
+        <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; padding: 12px; border-radius: 10px; background: #F4F5F3">
+          <div style="font-size: 14px; line-height: 1.5"><strong>Elena</strong> · My notes: Noisy conveyor belt motor<br><span style="color: #56625D">Mentor confirmed: "Good checking, we found worn bearings."</span></div>
+          <div style="display: flex; gap: 8px"><a href="#StuNotes" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; border-radius: 10px; border: 1px solid #C9D0CC; background: #FFFFFF; color: #1B2421; font-size: 15px; text-decoration: none">Open</a><button type="button" style="min-height: 44px; padding: 0 14px; border-radius: 10px; border: 0; background: #0E6A73; color: #FFFFFF; font: inherit; font-size: 14px; font-weight: 600">Approve</button></div>
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; padding: 12px; border-radius: 10px; background: #F4F5F3">
+          <div style="font-size: 14px; line-height: 1.5"><strong>Luca</strong> · My notes: Checking the compressor air filter<br><span style="color: #56625D">Waiting for the mentor</span></div>
+          <button type="button" style="min-height: 44px; padding: 0 14px; border-radius: 10px; border: 1px solid #C9D0CC; background: #FFFFFF; font: inherit; font-size: 14px">Remind the mentor</button>
+        </div></section>
+    </main>
+  </div>
+</div>
+
+
+</div></section><section class="screen" id="NewBasics" data-title="N1. New scenario: basics and learners"><div class="label">N1. New scenario: basics and learners</div><div class="frame" style="width:1280px">
+
+
+
+
+
+<div style="font-family: Inter, system-ui, sans-serif; color: #1B2421; background: #F4F5F3; min-height: 760px">
+  <header style="background: #FFFFFF; border-bottom: 1px solid #DCE1DE; padding: 12px 24px; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap">
+    <div style="display: flex; align-items: center; gap: 12px"><div style="width: 32px; height: 32px; border-radius: 8px; background: #0E6A73; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px">AP</div><div style="font-size: 15px; font-weight: 600">AIM PRO</div></div>
+    <div style="display: flex; align-items: center; gap: 16px; font-size: 13px; color: #56625D">
+      <label for="NewBasics-lang" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Language</label>
+      <select id="NewBasics-lang" style="height: 36px; border: 1px solid #C9D0CC; border-radius: 8px; padding: 0 8px; font: inherit; background: #FFFFFF"><option>English</option><option>Italiano</option><option>Español</option><option>Ελληνικά</option></select>
+      <span>Marco · VET trainer · Maintenance programme</span>
+    </div>
+  </header>
+  <div style="display: flex; flex-wrap: wrap">
+    <nav aria-label="Main" style="flex: 1 1 220px; max-width: 260px; padding: 20px 12px; display: flex; flex-direction: column; gap: 4px; box-sizing: border-box">
+      <a href="#EduHome" style="padding: 10px 12px; border-radius: 8px; color: #1B2421; font-size: 14px; text-decoration: none">Home</a><a href="#EduScenario" style="padding: 10px 12px; border-radius: 8px; background: #DCEDEE; color: #0A4F56; font-weight: 600; font-size: 14px; text-decoration: none">Learning scenarios</a><a href="#EduActivity" style="padding: 10px 12px; border-radius: 8px; color: #1B2421; font-size: 14px; text-decoration: none">Activities</a><a href="#EduResources" style="padding: 10px 12px; border-radius: 8px; color: #1B2421; font-size: 14px; text-decoration: none">Resources</a><a href="#EduProgress" style="padding: 10px 12px; border-radius: 8px; color: #1B2421; font-size: 14px; text-decoration: none">Learners and competencies</a>
+      <div style="margin-top: 16px; padding: 12px; border-radius: 10px; background: #FFFFFF; border: 1px solid #DCE1DE; font-size: 13px; line-height: 1.45; color: #3F4A45">My educator group: <strong>Maintenance programme</strong><br>2 VET trainers, 3 company mentors</div>
+    </nav>
+    <main style="flex: 999 1 560px; min-width: 0; padding: 28px 24px 56px; display: flex; flex-direction: column; gap: 18px; max-width: 1000px">
+      <div style="display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; align-items: center">
+        <div><div style="font-size: 13px; color: #56625D">New learning scenario · draft saved</div><h1 style="margin: 2px 0 0; font-size: 26px; font-weight: 700">Create a learning scenario</h1></div>
+        <a href="#EduHome" style="font-size: 14px">Save and exit</a>
+      </div>
+      <nav aria-label="Steps" style="display: flex; flex-wrap: wrap; gap: 8px"><a href="#NewBasics" style="flex: 1 1 160px; display: flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 12px; border-radius: 10px; background: #0E6A73; color: #FFFFFF; border: 0; text-decoration: none; font-size: 14px; font-weight: 600"><span style="font-size: 12px; opacity: .85">1</span>Basics and learners</a><a href="#NewGoals" style="flex: 1 1 160px; display: flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 12px; border-radius: 10px; background: #FFFFFF; color: #3F4A45; border: 1px solid #C9D0CC; text-decoration: none; font-size: 14px; font-weight: 600"><span style="font-size: 12px; opacity: .85">2</span>Goals and competencies</a><a href="#NewPhases" style="flex: 1 1 160px; display: flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 12px; border-radius: 10px; background: #FFFFFF; color: #3F4A45; border: 1px solid #C9D0CC; text-decoration: none; font-size: 14px; font-weight: 600"><span style="font-size: 12px; opacity: .85">3</span>Phases and activities</a><a href="#NewAssign" style="flex: 1 1 160px; display: flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 12px; border-radius: 10px; background: #FFFFFF; color: #3F4A45; border: 1px solid #C9D0CC; text-decoration: none; font-size: 14px; font-weight: 600"><span style="font-size: 12px; opacity: .85">4</span>Assign and publish</a></nav>
+      <p style="margin: 0; font-size: 15px; line-height: 1.5; color: #3F4A45">Step 1: say what this scenario is about and who it is for. AIM PRO uses this to suggest goals, activities and resources.</p>
+      <section style="background: #FFFFFF; border: 1px solid #DCE1DE; border-radius: 12px; padding: 18px 20px; display: flex; flex-direction: column; gap: 10px; "><h2 style="margin: 0; font-size: 16px; font-weight: 700">Basics</h2>
+        <div style="display: flex; flex-direction: column; gap: 6px"><label for="NewBasics-nt" style="font-size: 14px; font-weight: 600">Title</label><input id="NewBasics-nt" value="Using AI responsibly in maintenance work" style="height: 44px; border: 1px solid #C9D0CC; border-radius: 8px; padding: 0 12px; font: inherit; font-size: 15px"></div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px"><div style="display: flex; flex-direction: column; gap: 6px"><label for="NewBasics-ctx" style="font-size: 14px; font-weight: 600">Educational and institutional context</label><select id="NewBasics-ctx" style="height: 44px; border: 1px solid #C9D0CC; border-radius: 8px; padding: 0 10px; font: inherit; font-size: 15px; background: #FFFFFF"><option>Dual VET: school + companies</option><option>University</option><option>VET school only</option><option>Company training (SME)</option><option>Adult learning</option></select></div><div style="display: flex; flex-direction: column; gap: 6px"><label for="NewBasics-dur" style="font-size: 14px; font-weight: 600">Length</label><select id="NewBasics-dur" style="height: 44px; border: 1px solid #C9D0CC; border-radius: 8px; padding: 0 10px; font: inherit; font-size: 15px; background: #FFFFFF"><option>4 weeks</option><option>1 week</option><option>2 weeks</option><option>1 semester</option></select></div><div style="display: flex; flex-direction: column; gap: 6px"><label for="NewBasics-lng" style="font-size: 14px; font-weight: 600">Languages</label><input id="NewBasics-lng" value="Italian, English" style="height: 44px; border: 1px solid #C9D0CC; border-radius: 8px; padding: 0 12px; font: inherit; font-size: 15px"></div><div style="display: flex; flex-direction: column; gap: 6px"><label for="NewBasics-cert" style="font-size: 14px; font-weight: 600">Finishes with</label><select id="NewBasics-cert" style="height: 44px; border: 1px solid #C9D0CC; border-radius: 8px; padding: 0 10px; font: inherit; font-size: 15px; background: #FFFFFF"><option>AIM PRO certificate</option><option>Badge only</option><option>Nothing</option></select></div></div></section>
+      <section style="background: #FFFFFF; border: 1px solid #DCE1DE; border-radius: 12px; padding: 18px 20px; display: flex; flex-direction: column; gap: 10px; "><h2 style="margin: 0; font-size: 16px; font-weight: 700">Who is it for? (learner archetype)</h2>
+        <div style="display: flex; flex-direction: column; gap: 6px"><label for="NewBasics-arch" style="font-size: 14px; font-weight: 600">Describe the learners</label><input id="NewBasics-arch" value="Year 1 maintenance apprentices, 16 to 20 years old" style="height: 44px; border: 1px solid #C9D0CC; border-radius: 8px; padding: 0 12px; font: inherit; font-size: 15px"></div>
+        <fieldset style="border: 0; margin: 0; padding: 0"><legend style="font-size: 14px; font-weight: 600; margin-bottom: 8px">Learner type</legend><div style="display: flex; flex-wrap: wrap; gap: 8px"><button type="button" aria-pressed="true" style="min-height: 40px; padding: 0 14px; border-radius: 999px; border: 2px solid #0E6A73; background: #DCEDEE; color: #0A4F56; font: inherit; font-size: 14px; font-weight: 600">Students and apprentices</button><button type="button" style="min-height: 40px; padding: 0 14px; border-radius: 999px; border: 1px solid #C9D0CC; background: #FFFFFF; font: inherit; font-size: 14px">Professionals</button><button type="button" style="min-height: 40px; padding: 0 14px; border-radius: 999px; border: 1px solid #C9D0CC; background: #FFFFFF; font: inherit; font-size: 14px">People learning for themselves</button></div></fieldset>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px"><div style="display: flex; flex-direction: column; gap: 6px"><span style="font-size: 14px; font-weight: 600">Needs</span><label style="display: flex; align-items: center; gap: 10px; min-height: 44px; font-size: 15px"><input type="checkbox" checked style="width: 20px; height: 20px"> Use AI safely at the workplace</label><label style="display: flex; align-items: center; gap: 10px; min-height: 44px; font-size: 15px"><input type="checkbox" checked style="width: 20px; height: 20px"> A certificate for their CV</label><label style="display: flex; align-items: center; gap: 10px; min-height: 44px; font-size: 15px"><input type="checkbox" style="width: 20px; height: 20px"> Better reading of technical manuals</label></div><div style="display: flex; flex-direction: column; gap: 6px"><span style="font-size: 14px; font-weight: 600">Abilities</span><label style="display: flex; align-items: center; gap: 10px; min-height: 44px; font-size: 15px"><input type="checkbox" checked style="width: 20px; height: 20px"> New to AI tools</label><label style="display: flex; align-items: center; gap: 10px; min-height: 44px; font-size: 15px"><input type="checkbox" checked style="width: 20px; height: 20px"> Basic digital skills</label><label style="display: flex; align-items: center; gap: 10px; min-height: 44px; font-size: 15px"><input type="checkbox" checked style="width: 20px; height: 20px"> Can work with a mentor at the company</label></div><div style="display: flex; flex-direction: column; gap: 6px"><span style="font-size: 14px; font-weight: 600">Preferences</span><label style="display: flex; align-items: center; gap: 10px; min-height: 44px; font-size: 15px"><input type="checkbox" checked style="width: 20px; height: 20px"> Short videos</label><label style="display: flex; align-items: center; gap: 10px; min-height: 44px; font-size: 15px"><input type="checkbox" checked style="width: 20px; height: 20px"> Doing real tasks</label><label style="display: flex; align-items: center; gap: 10px; min-height: 44px; font-size: 15px"><input type="checkbox" checked style="width: 20px; height: 20px"> Learning on the phone</label></div></div></section>
+      <div style="background: #FFFFFF; border: 1px dashed #0E6A73; border-radius: 12px; padding: 14px 16px; font-size: 14px; line-height: 1.5; color: #3F4A45"><strong style="color: #0A4F56">Assistant:</strong> Most of your apprentices already filled in their learner profile. 9 of 12 prefer doing real tasks, and 4 prefer listening.</div>
+      <div style="display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap"><span></span><a href="#NewGoals" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 20px; border-radius: 10px; background: #0E6A73; color: #FFFFFF; font-weight: 600; font-size: 15px; text-decoration: none">Next: goals and competencies</a></div>
+    </main>
+  </div>
+</div>
+
+
+</div></section><section class="screen" id="NewGoals" data-title="N2. New scenario: goals and competencies"><div class="label">N2. New scenario: goals and competencies</div><div class="frame" style="width:1280px">
+
+
+
+
+
+<div style="font-family: Inter, system-ui, sans-serif; color: #1B2421; background: #F4F5F3; min-height: 760px">
+  <header style="background: #FFFFFF; border-bottom: 1px solid #DCE1DE; padding: 12px 24px; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap">
+    <div style="display: flex; align-items: center; gap: 12px"><div style="width: 32px; height: 32px; border-radius: 8px; background: #0E6A73; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px">AP</div><div style="font-size: 15px; font-weight: 600">AIM PRO</div></div>
+    <div style="display: flex; align-items: center; gap: 16px; font-size: 13px; color: #56625D">
+      <label for="NewGoals-lang" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Language</label>
+      <select id="NewGoals-lang" style="height: 36px; border: 1px solid #C9D0CC; border-radius: 8px; padding: 0 8px; font: inherit; background: #FFFFFF"><option>English</option><option>Italiano</option><option>Español</option><option>Ελληνικά</option></select>
+      <span>Marco · VET trainer · Maintenance programme</span>
+    </div>
+  </header>
+  <div style="display: flex; flex-wrap: wrap">
+    <nav aria-label="Main" style="flex: 1 1 220px; max-width: 260px; padding: 20px 12px; display: flex; flex-direction: column; gap: 4px; box-sizing: border-box">
+      <a href="#EduHome" style="padding: 10px 12px; border-radius: 8px; color: #1B2421; font-size: 14px; text-decoration: none">Home</a><a href="#EduScenario" style="padding: 10px 12px; border-radius: 8px; background: #DCEDEE; color: #0A4F56; font-weight: 600; font-size: 14px; text-decoration: none">Learning scenarios</a><a href="#EduActivity" style="padding: 10px 12px; border-radius: 8px; color: #1B2421; font-size: 14px; text-decoration: none">Activities</a><a href="#EduResources" style="padding: 10px 12px; border-radius: 8px; color: #1B2421; font-size: 14px; text-decoration: none">Resources</a><a href="#EduProgress" style="padding: 10px 12px; border-radius: 8px; color: #1B2421; font-size: 14px; text-decoration: none">Learners and competencies</a>
+      <div style="margin-top: 16px; padding: 12px; border-radius: 10px; background: #FFFFFF; border: 1px solid #DCE1DE; font-size: 13px; line-height: 1.45; color: #3F4A45">My educator group: <strong>Maintenance programme</strong><br>2 VET trainers, 3 company mentors</div>
+    </nav>
+    <main style="flex: 999 1 560px; min-width: 0; padding: 28px 24px 56px; display: flex; flex-direction: column; gap: 18px; max-width: 1000px">
+      <div style="display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; align-items: center">
+        <div><div style="font-size: 13px; color: #56625D">New learning scenario · draft saved</div><h1 style="margin: 2px 0 0; font-size: 26px; font-weight: 700">Goals and competencies</h1></div>
+        <a href="#EduHome" style="font-size: 14px">Save and exit</a>
+      </div>
+      <nav aria-label="Steps" style="display: flex; flex-wrap: wrap; gap: 8px"><a href="#NewBasics" style="flex: 1 1 160px; display: flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 12px; border-radius: 10px; background: #DCEDEE; color: #0A4F56; border: 0; text-decoration: none; font-size: 14px; font-weight: 600"><span style="font-size: 12px; opacity: .85">1</span>Basics and learners</a><a href="#NewGoals" style="flex: 1 1 160px; display: flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 12px; border-radius: 10px; background: #0E6A73; color: #FFFFFF; border: 0; text-decoration: none; font-size: 14px; font-weight: 600"><span style="font-size: 12px; opacity: .85">2</span>Goals and competencies</a><a href="#NewPhases" style="flex: 1 1 160px; display: flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 12px; border-radius: 10px; background: #FFFFFF; color: #3F4A45; border: 1px solid #C9D0CC; text-decoration: none; font-size: 14px; font-weight: 600"><span style="font-size: 12px; opacity: .85">3</span>Phases and activities</a><a href="#NewAssign" style="flex: 1 1 160px; display: flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 12px; border-radius: 10px; background: #FFFFFF; color: #3F4A45; border: 1px solid #C9D0CC; text-decoration: none; font-size: 14px; font-weight: 600"><span style="font-size: 12px; opacity: .85">4</span>Assign and publish</a></nav>
+      <p style="margin: 0; font-size: 15px; line-height: 1.5; color: #3F4A45">Step 2: set what learners should be able to do at the end. Each goal brings competencies from the AIM PRO competency framework.</p>
+      <div style="display: flex; flex-wrap: wrap; gap: 18px; align-items: flex-start">
+        <div style="flex: 999 1 460px; min-width: 0; display: flex; flex-direction: column; gap: 12px">
+          <section style="background: #FFFFFF; border: 1px solid #DCE1DE; border-radius: 12px; padding: 18px 20px; display: flex; flex-direction: column; gap: 10px; padding: 16px 18px"><div style="display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; align-items: baseline"><h2 style="margin: 0; font-size: 16px; font-weight: 700">Goal 1</h2><button type="button" style="min-height: 36px; padding: 0 12px; border-radius: 8px; border: 1px solid #C9D0CC; background: #FFFFFF; font: inherit; font-size: 13px">Edit</button></div>
+        <div style="font-size: 15px">Explain what generative AI is and what it cannot do</div>
+        <div style="display: flex; flex-wrap: wrap; gap: 6px; align-items: center"><span style="font-size: 13px; color: #56625D">Competencies:</span><span style="padding: 5px 12px; border-radius: 999px; background: #DCEDEE; color: #0A4F56; font-size: 13px; font-weight: 600">Understanding AI</span></div>
+        <div style="font-size: 13px; color: #56625D">Checked by: Quiz</div></section>
+          <section style="background: #FFFFFF; border: 1px solid #DCE1DE; border-radius: 12px; padding: 18px 20px; display: flex; flex-direction: column; gap: 10px; padding: 16px 18px"><div style="display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; align-items: baseline"><h2 style="margin: 0; font-size: 16px; font-weight: 700">Goal 2</h2><button type="button" style="min-height: 36px; padding: 0 12px; border-radius: 8px; border: 1px solid #C9D0CC; background: #FFFFFF; font: inherit; font-size: 13px">Edit</button></div>
+        <div style="font-size: 15px">Use AI on real tasks and check what it gives you</div>
+        <div style="display: flex; flex-wrap: wrap; gap: 6px; align-items: center"><span style="font-size: 13px; color: #56625D">Competencies:</span><span style="padding: 5px 12px; border-radius: 999px; background: #DCEDEE; color: #0A4F56; font-size: 13px; font-weight: 600">Using AI effectively</span><span style="padding: 5px 12px; border-radius: 999px; background: #DCEDEE; color: #0A4F56; font-size: 13px; font-weight: 600">Evaluating AI outputs</span></div>
+        <div style="font-size: 13px; color: #56625D">Checked by: Mentor check of the learner's notes</div></section>
+          <section style="background: #FFFFFF; border: 1px solid #DCE1DE; border-radius: 12px; padding: 18px 20px; display: flex; flex-direction: column; gap: 10px; padding: 16px 18px"><div style="display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; align-items: baseline"><h2 style="margin: 0; font-size: 16px; font-weight: 700">Goal 3</h2><button type="button" style="min-height: 36px; padding: 0 12px; border-radius: 8px; border: 1px solid #C9D0CC; background: #FFFFFF; font: inherit; font-size: 13px">Edit</button></div>
+        <div style="font-size: 15px">Decide when and how to use AI ethically and sustainably</div>
+        <div style="display: flex; flex-wrap: wrap; gap: 6px; align-items: center"><span style="font-size: 13px; color: #56625D">Competencies:</span><span style="padding: 5px 12px; border-radius: 999px; background: #DCEDEE; color: #0A4F56; font-size: 13px; font-weight: 600">Ethical and responsible use</span><span style="padding: 5px 12px; border-radius: 999px; background: #DCEDEE; color: #0A4F56; font-size: 13px; font-weight: 600">Sustainable AI use</span></div>
+        <div style="font-size: 13px; color: #56625D">Checked by: AI-based assessment, approved by the trainer</div></section>
+          <button type="button" style="min-height: 44px; border-radius: 10px; border: 1px dashed #A9B3AE; background: #FAFBFA; font: inherit; font-size: 14px">Add a goal</button>
+        </div>
+        <aside style="flex: 1 1 280px; background: #FFFFFF; border: 1px solid #DCE1DE; border-radius: 12px; padding: 16px">
+          <h2 style="margin: 0 0 4px; font-size: 15px; font-weight: 700">AIM PRO competency framework</h2>
+          <label for="NewGoals-cs" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Search competencies</label>
+          <input id="NewGoals-cs" placeholder="Search competencies" style="width: 100%; box-sizing: border-box; height: 40px; border: 1px solid #C9D0CC; border-radius: 8px; padding: 0 10px; font: inherit; font-size: 14px; margin: 8px 0">
+          <label style="display: flex; gap: 10px; align-items: flex-start; padding: 10px 0; border-top: 1px solid #E6EAE8; font-size: 14px"><input type="checkbox" checked style="width: 20px; height: 20px; margin-top: 1px"><span><strong>Understanding AI</strong><br><span style="color: #56625D; font-size: 13px">Foundation</span></span></label><label style="display: flex; gap: 10px; align-items: flex-start; padding: 10px 0; border-top: 1px solid #E6EAE8; font-size: 14px"><input type="checkbox" checked style="width: 20px; height: 20px; margin-top: 1px"><span><strong>Using AI effectively</strong><br><span style="color: #56625D; font-size: 13px">Application · needs Understanding AI</span></span></label><label style="display: flex; gap: 10px; align-items: flex-start; padding: 10px 0; border-top: 1px solid #E6EAE8; font-size: 14px"><input type="checkbox" checked style="width: 20px; height: 20px; margin-top: 1px"><span><strong>Evaluating AI outputs</strong><br><span style="color: #56625D; font-size: 13px">Application · needs Understanding AI</span></span></label><label style="display: flex; gap: 10px; align-items: flex-start; padding: 10px 0; border-top: 1px solid #E6EAE8; font-size: 14px"><input type="checkbox" checked style="width: 20px; height: 20px; margin-top: 1px"><span><strong>Ethical and responsible use</strong><br><span style="color: #56625D; font-size: 13px">Responsibility</span></span></label><label style="display: flex; gap: 10px; align-items: flex-start; padding: 10px 0; border-top: 1px solid #E6EAE8; font-size: 14px"><input type="checkbox" checked style="width: 20px; height: 20px; margin-top: 1px"><span><strong>Sustainable AI use</strong><br><span style="color: #56625D; font-size: 13px">Responsibility</span></span></label><label style="display: flex; gap: 10px; align-items: flex-start; padding: 10px 0; border-top: 1px solid #E6EAE8; font-size: 14px"><input type="checkbox" style="width: 20px; height: 20px; margin-top: 1px"><span><strong>Data protection at work</strong><br><span style="color: #56625D; font-size: 13px">Responsibility</span></span></label><label style="display: flex; gap: 10px; align-items: flex-start; padding: 10px 0; border-top: 1px solid #E6EAE8; font-size: 14px"><input type="checkbox" style="width: 20px; height: 20px; margin-top: 1px"><span><strong>Explaining AI to others</strong><br><span style="color: #56625D; font-size: 13px">Communication · needs Understanding AI</span></span></label>
+        </aside>
+      </div>
+      <div style="background: #FFFFFF; border: 1px dashed #0E6A73; border-radius: 12px; padding: 14px 16px; font-size: 14px; line-height: 1.5; color: #3F4A45"><strong style="color: #0A4F56">Assistant:</strong> "Evaluating AI outputs" needs "Understanding AI" first. I will place it in an earlier phase.</div>
+      <div style="display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap"><a href="#NewBasics" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; border-radius: 10px; border: 1px solid #C9D0CC; background: #FFFFFF; color: #1B2421; font-size: 15px; text-decoration: none">Back</a><a href="#NewPhases" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 20px; border-radius: 10px; background: #0E6A73; color: #FFFFFF; font-weight: 600; font-size: 15px; text-decoration: none">Next: phases and activities</a></div>
+    </main>
+  </div>
+</div>
+
+
+</div></section><section class="screen" id="NewPhases" data-title="N3. New scenario: phases and activities"><div class="label">N3. New scenario: phases and activities</div><div class="frame" style="width:1280px">
+
+
+
+
+
+<div style="font-family: Inter, system-ui, sans-serif; color: #1B2421; background: #F4F5F3; min-height: 760px">
+  <header style="background: #FFFFFF; border-bottom: 1px solid #DCE1DE; padding: 12px 24px; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap">
+    <div style="display: flex; align-items: center; gap: 12px"><div style="width: 32px; height: 32px; border-radius: 8px; background: #0E6A73; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px">AP</div><div style="font-size: 15px; font-weight: 600">AIM PRO</div></div>
+    <div style="display: flex; align-items: center; gap: 16px; font-size: 13px; color: #56625D">
+      <label for="NewPhases-lang" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Language</label>
+      <select id="NewPhases-lang" style="height: 36px; border: 1px solid #C9D0CC; border-radius: 8px; padding: 0 8px; font: inherit; background: #FFFFFF"><option>English</option><option>Italiano</option><option>Español</option><option>Ελληνικά</option></select>
+      <span>Marco · VET trainer · Maintenance programme</span>
+    </div>
+  </header>
+  <div style="display: flex; flex-wrap: wrap">
+    <nav aria-label="Main" style="flex: 1 1 220px; max-width: 260px; padding: 20px 12px; display: flex; flex-direction: column; gap: 4px; box-sizing: border-box">
+      <a href="#EduHome" style="padding: 10px 12px; border-radius: 8px; color: #1B2421; font-size: 14px; text-decoration: none">Home</a><a href="#EduScenario" style="padding: 10px 12px; border-radius: 8px; background: #DCEDEE; color: #0A4F56; font-weight: 600; font-size: 14px; text-decoration: none">Learning scenarios</a><a href="#EduActivity" style="padding: 10px 12px; border-radius: 8px; color: #1B2421; font-size: 14px; text-decoration: none">Activities</a><a href="#EduResources" style="padding: 10px 12px; border-radius: 8px; color: #1B2421; font-size: 14px; text-decoration: none">Resources</a><a href="#EduProgress" style="padding: 10px 12px; border-radius: 8px; color: #1B2421; font-size: 14px; text-decoration: none">Learners and competencies</a>
+      <div style="margin-top: 16px; padding: 12px; border-radius: 10px; background: #FFFFFF; border: 1px solid #DCE1DE; font-size: 13px; line-height: 1.45; color: #3F4A45">My educator group: <strong>Maintenance programme</strong><br>2 VET trainers, 3 company mentors</div>
+    </nav>
+    <main style="flex: 999 1 560px; min-width: 0; padding: 28px 24px 56px; display: flex; flex-direction: column; gap: 18px; max-width: 1000px">
+      <div style="display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; align-items: center">
+        <div><div style="font-size: 13px; color: #56625D">New learning scenario · draft saved</div><h1 style="margin: 2px 0 0; font-size: 26px; font-weight: 700">Phases and activities</h1></div>
+        <a href="#EduHome" style="font-size: 14px">Save and exit</a>
+      </div>
+      <nav aria-label="Steps" style="display: flex; flex-wrap: wrap; gap: 8px"><a href="#NewBasics" style="flex: 1 1 160px; display: flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 12px; border-radius: 10px; background: #DCEDEE; color: #0A4F56; border: 0; text-decoration: none; font-size: 14px; font-weight: 600"><span style="font-size: 12px; opacity: .85">1</span>Basics and learners</a><a href="#NewGoals" style="flex: 1 1 160px; display: flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 12px; border-radius: 10px; background: #DCEDEE; color: #0A4F56; border: 0; text-decoration: none; font-size: 14px; font-weight: 600"><span style="font-size: 12px; opacity: .85">2</span>Goals and competencies</a><a href="#NewPhases" style="flex: 1 1 160px; display: flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 12px; border-radius: 10px; background: #0E6A73; color: #FFFFFF; border: 0; text-decoration: none; font-size: 14px; font-weight: 600"><span style="font-size: 12px; opacity: .85">3</span>Phases and activities</a><a href="#NewAssign" style="flex: 1 1 160px; display: flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 12px; border-radius: 10px; background: #FFFFFF; color: #3F4A45; border: 1px solid #C9D0CC; text-decoration: none; font-size: 14px; font-weight: 600"><span style="font-size: 12px; opacity: .85">4</span>Assign and publish</a></nav>
+      <p style="margin: 0; font-size: 15px; line-height: 1.5; color: #3F4A45">Step 3: put the phases in order and fill each one with activities. Drag to reorder. Each activity can use resources from the library.</p>
+      <div style="display: flex; flex-wrap: wrap; gap: 14px; align-items: flex-start">
+        <section style="flex: 1 1 300px; min-width: 0; background: #F4F5F3; border: 1px solid #DCE1DE; border-radius: 12px; padding: 14px; display: flex; flex-direction: column; gap: 10px">
+          <div style="display: flex; justify-content: space-between; gap: 8px; align-items: baseline"><h2 style="margin: 0; font-size: 15px; font-weight: 700">Phase 1 · Understand AI</h2><span style="font-size: 12px; color: #56625D">then Phase 2</span></div>
+          <div style="font-size: 13px; color: #3F4A45">Targets: Goal 1</div>
+          <ol style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px"><li style="display: flex; gap: 10px; align-items: center; padding: 10px 12px; border: 1px solid #DCE1DE; border-radius: 10px; background: #FFFFFF; flex-wrap: wrap"><span aria-hidden="true" style="color: #A9B3AE; font-size: 16px">⋮⋮</span><span style="min-width: 150px; font-size: 12px; font-weight: 600; color: #2B4C8C">LECTURE</span><span style="flex: 1; font-size: 14px">What is generative AI?</span><span style="font-size: 12px; color: #56625D">1 video · 10 min</span></li><li style="display: flex; gap: 10px; align-items: center; padding: 10px 12px; border: 1px solid #DCE1DE; border-radius: 10px; background: #FFFFFF; flex-wrap: wrap"><span aria-hidden="true" style="color: #A9B3AE; font-size: 16px">⋮⋮</span><span style="min-width: 150px; font-size: 12px; font-weight: 600; color: #2B4C8C">TUTORIAL</span><span style="flex: 1; font-size: 14px">How to ask AI a clear question</span><span style="font-size: 12px; color: #56625D">1 guide · 15 min</span></li><li style="display: flex; gap: 10px; align-items: center; padding: 10px 12px; border: 1px solid #DCE1DE; border-radius: 10px; background: #FFFFFF; flex-wrap: wrap"><span aria-hidden="true" style="color: #A9B3AE; font-size: 16px">⋮⋮</span><span style="min-width: 150px; font-size: 12px; font-weight: 600; color: #2B4C8C">QUIZ</span><span style="flex: 1; font-size: 14px">AI at work: true or false?</span><span style="font-size: 12px; color: #56625D">10 questions · 5 min</span></li></ol>
+          <button type="button" style="min-height: 40px; border-radius: 10px; border: 1px dashed #A9B3AE; background: #FAFBFA; font: inherit; font-size: 14px">Add an activity</button>
+        </section>
+        <section style="flex: 1 1 300px; min-width: 0; background: #F4F5F3; border: 1px solid #DCE1DE; border-radius: 12px; padding: 14px; display: flex; flex-direction: column; gap: 10px">
+          <div style="display: flex; justify-content: space-between; gap: 8px; align-items: baseline"><h2 style="margin: 0; font-size: 15px; font-weight: 700">Phase 2 · Use AI at work</h2><span style="font-size: 12px; color: #56625D">then Phase 3</span></div>
+          <div style="font-size: 13px; color: #3F4A45">Targets: Goal 2</div>
+          <ol style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px"><li style="display: flex; gap: 10px; align-items: center; padding: 10px 12px; border: 1px solid #DCE1DE; border-radius: 10px; background: #FFFFFF; flex-wrap: wrap"><span aria-hidden="true" style="color: #A9B3AE; font-size: 16px">⋮⋮</span><span style="min-width: 150px; font-size: 12px; font-weight: 600; color: #7A4200">WORKPLACE TASK</span><span style="flex: 1; font-size: 14px">Noisy conveyor belt motor</span><span style="font-size: 12px; color: #56625D">manual + template · 15 min</span></li><li style="display: flex; gap: 10px; align-items: center; padding: 10px 12px; border: 1px solid #DCE1DE; border-radius: 10px; background: #FFFFFF; flex-wrap: wrap"><span aria-hidden="true" style="color: #A9B3AE; font-size: 16px">⋮⋮</span><span style="min-width: 150px; font-size: 12px; font-weight: 600; color: #7A4200">WORKPLACE TASK</span><span style="flex: 1; font-size: 14px">Checking the compressor air filter</span><span style="font-size: 12px; color: #56625D">manual + template · 10 min</span></li></ol>
+          <div style="border: 1px solid #C9D0CC; border-radius: 10px; background: #FFFFFF; padding: 10px; display: flex; flex-direction: column; gap: 6px; box-shadow: 0 4px 14px rgba(0,0,0,.08)">
+            <span style="font-size: 13px; font-weight: 600; color: #3F4A45">Add an activity: choose a type</span>
+            <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px"><a href="#EduActivity" style="min-height: 38px; display: flex; align-items: center; padding: 0 10px; border-radius: 8px; background: #F4F5F3; color: #1B2421; font-size: 13px; text-decoration: none">Lecture</a><a href="#EduActivity" style="min-height: 38px; display: flex; align-items: center; padding: 0 10px; border-radius: 8px; background: #F4F5F3; color: #1B2421; font-size: 13px; text-decoration: none">Tutorial</a><a href="#EduActivity" style="min-height: 38px; display: flex; align-items: center; padding: 0 10px; border-radius: 8px; background: #F4F5F3; color: #1B2421; font-size: 13px; text-decoration: none">Exercise</a><a href="#EduActivity" style="min-height: 38px; display: flex; align-items: center; padding: 0 10px; border-radius: 8px; background: #F4F5F3; color: #1B2421; font-size: 13px; text-decoration: none">Workplace task</a><a href="#EduActivity" style="min-height: 38px; display: flex; align-items: center; padding: 0 10px; border-radius: 8px; background: #F4F5F3; color: #1B2421; font-size: 13px; text-decoration: none">Collaborative activity</a><a href="#EduActivity" style="min-height: 38px; display: flex; align-items: center; padding: 0 10px; border-radius: 8px; background: #F4F5F3; color: #1B2421; font-size: 13px; text-decoration: none">Challenge</a><a href="#EduActivity" style="min-height: 38px; display: flex; align-items: center; padding: 0 10px; border-radius: 8px; background: #F4F5F3; color: #1B2421; font-size: 13px; text-decoration: none">Peer review</a><a href="#EduActivity" style="min-height: 38px; display: flex; align-items: center; padding: 0 10px; border-radius: 8px; background: #F4F5F3; color: #1B2421; font-size: 13px; text-decoration: none">Self-assessment</a></div>
+            <a href="#EduResults" style="font-size: 13px">Or reuse an activity from the library</a>
+          </div>
+        </section>
+        <section style="flex: 1 1 300px; min-width: 0; background: #F4F5F3; border: 1px solid #DCE1DE; border-radius: 12px; padding: 14px; display: flex; flex-direction: column; gap: 10px">
+          <div style="display: flex; justify-content: space-between; gap: 8px; align-items: baseline"><h2 style="margin: 0; font-size: 15px; font-weight: 700">Phase 3 · Use AI responsibly</h2><span style="font-size: 12px; color: #56625D">last</span></div>
+          <div style="font-size: 13px; color: #3F4A45">Targets: Goal 3</div>
+          <ol style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px"><li style="display: flex; gap: 10px; align-items: center; padding: 10px 12px; border: 1px solid #DCE1DE; border-radius: 10px; background: #FFFFFF; flex-wrap: wrap"><span aria-hidden="true" style="color: #A9B3AE; font-size: 16px">⋮⋮</span><span style="min-width: 150px; font-size: 12px; font-weight: 600; color: #7A3E9D">COLLABORATIVE ACTIVITY</span><span style="flex: 1; font-size: 14px">Group case: AI advice and safety rules</span><span style="font-size: 12px; color: #56625D">1 case · 30 min</span></li><li style="display: flex; gap: 10px; align-items: center; padding: 10px 12px; border: 1px solid #DCE1DE; border-radius: 10px; background: #FFFFFF; flex-wrap: wrap"><span aria-hidden="true" style="color: #A9B3AE; font-size: 16px">⋮⋮</span><span style="min-width: 150px; font-size: 12px; font-weight: 600; color: #174D33">CHALLENGE</span><span style="flex: 1; font-size: 14px">Do you really need AI for this?</span><span style="font-size: 12px; color: #56625D">1 tool · 20 min</span></li><li style="display: flex; gap: 10px; align-items: center; padding: 10px 12px; border: 1px solid #DCE1DE; border-radius: 10px; background: #FFFFFF; flex-wrap: wrap"><span aria-hidden="true" style="color: #A9B3AE; font-size: 16px">⋮⋮</span><span style="min-width: 150px; font-size: 12px; font-weight: 600; color: #174D33">AI-BASED ASSESSMENT</span><span style="flex: 1; font-size: 14px">Final check with your trainer</span><span style="font-size: 12px; color: #56625D">rubric · 20 min</span></li></ol>
+          <button type="button" style="min-height: 40px; border-radius: 10px; border: 1px dashed #A9B3AE; background: #FAFBFA; font: inherit; font-size: 14px">Add an activity</button>
+        </section>
+      </div>
+      <div style="display: flex; gap: 8px; flex-wrap: wrap"><button type="button" style="min-height: 44px; padding: 0 16px; border-radius: 10px; border: 1px dashed #A9B3AE; background: #FAFBFA; font: inherit; font-size: 14px">Add a phase</button><button type="button" style="min-height: 44px; padding: 0 16px; border-radius: 10px; border: 1px solid #C9D0CC; background: #FFFFFF; font: inherit; font-size: 14px">Ask the assistant to suggest activities</button></div>
+      <div style="background: #FFFFFF; border: 1px dashed #0E6A73; border-radius: 12px; padding: 14px 16px; font-size: 14px; line-height: 1.5; color: #3F4A45"><strong style="color: #0A4F56">Assistant:</strong> Phase 2 has no peer review yet. Learners who compare notes with a classmate remember the checking steps better. Add one?</div>
+      <div style="display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap"><a href="#NewGoals" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; border-radius: 10px; border: 1px solid #C9D0CC; background: #FFFFFF; color: #1B2421; font-size: 15px; text-decoration: none">Back</a><a href="#NewAssign" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 20px; border-radius: 10px; background: #0E6A73; color: #FFFFFF; font-weight: 600; font-size: 15px; text-decoration: none">Next: assign and publish</a></div>
+    </main>
+  </div>
+</div>
+
+
+</div></section><section class="screen" id="NewAssign" data-title="N4. New scenario: assign learners and publish"><div class="label">N4. New scenario: assign learners and publish</div><div class="frame" style="width:1280px">
+
+
+
+
+
+<div style="font-family: Inter, system-ui, sans-serif; color: #1B2421; background: #F4F5F3; min-height: 760px">
+  <header style="background: #FFFFFF; border-bottom: 1px solid #DCE1DE; padding: 12px 24px; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap">
+    <div style="display: flex; align-items: center; gap: 12px"><div style="width: 32px; height: 32px; border-radius: 8px; background: #0E6A73; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px">AP</div><div style="font-size: 15px; font-weight: 600">AIM PRO</div></div>
+    <div style="display: flex; align-items: center; gap: 16px; font-size: 13px; color: #56625D">
+      <label for="NewAssign-lang" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Language</label>
+      <select id="NewAssign-lang" style="height: 36px; border: 1px solid #C9D0CC; border-radius: 8px; padding: 0 8px; font: inherit; background: #FFFFFF"><option>English</option><option>Italiano</option><option>Español</option><option>Ελληνικά</option></select>
+      <span>Marco · VET trainer · Maintenance programme</span>
+    </div>
+  </header>
+  <div style="display: flex; flex-wrap: wrap">
+    <nav aria-label="Main" style="flex: 1 1 220px; max-width: 260px; padding: 20px 12px; display: flex; flex-direction: column; gap: 4px; box-sizing: border-box">
+      <a href="#EduHome" style="padding: 10px 12px; border-radius: 8px; color: #1B2421; font-size: 14px; text-decoration: none">Home</a><a href="#EduScenario" style="padding: 10px 12px; border-radius: 8px; background: #DCEDEE; color: #0A4F56; font-weight: 600; font-size: 14px; text-decoration: none">Learning scenarios</a><a href="#EduActivity" style="padding: 10px 12px; border-radius: 8px; color: #1B2421; font-size: 14px; text-decoration: none">Activities</a><a href="#EduResources" style="padding: 10px 12px; border-radius: 8px; color: #1B2421; font-size: 14px; text-decoration: none">Resources</a><a href="#EduProgress" style="padding: 10px 12px; border-radius: 8px; color: #1B2421; font-size: 14px; text-decoration: none">Learners and competencies</a>
+      <div style="margin-top: 16px; padding: 12px; border-radius: 10px; background: #FFFFFF; border: 1px solid #DCE1DE; font-size: 13px; line-height: 1.45; color: #3F4A45">My educator group: <strong>Maintenance programme</strong><br>2 VET trainers, 3 company mentors</div>
+    </nav>
+    <main style="flex: 999 1 560px; min-width: 0; padding: 28px 24px 56px; display: flex; flex-direction: column; gap: 18px; max-width: 1000px">
+      <div style="display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; align-items: center">
+        <div><div style="font-size: 13px; color: #56625D">New learning scenario · draft saved</div><h1 style="margin: 2px 0 0; font-size: 26px; font-weight: 700">Assign and publish</h1></div>
+        <a href="#EduHome" style="font-size: 14px">Save and exit</a>
+      </div>
+      <nav aria-label="Steps" style="display: flex; flex-wrap: wrap; gap: 8px"><a href="#NewBasics" style="flex: 1 1 160px; display: flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 12px; border-radius: 10px; background: #DCEDEE; color: #0A4F56; border: 0; text-decoration: none; font-size: 14px; font-weight: 600"><span style="font-size: 12px; opacity: .85">1</span>Basics and learners</a><a href="#NewGoals" style="flex: 1 1 160px; display: flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 12px; border-radius: 10px; background: #DCEDEE; color: #0A4F56; border: 0; text-decoration: none; font-size: 14px; font-weight: 600"><span style="font-size: 12px; opacity: .85">2</span>Goals and competencies</a><a href="#NewPhases" style="flex: 1 1 160px; display: flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 12px; border-radius: 10px; background: #DCEDEE; color: #0A4F56; border: 0; text-decoration: none; font-size: 14px; font-weight: 600"><span style="font-size: 12px; opacity: .85">3</span>Phases and activities</a><a href="#NewAssign" style="flex: 1 1 160px; display: flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 12px; border-radius: 10px; background: #0E6A73; color: #FFFFFF; border: 0; text-decoration: none; font-size: 14px; font-weight: 600"><span style="font-size: 12px; opacity: .85">4</span>Assign and publish</a></nav>
+      <p style="margin: 0; font-size: 15px; line-height: 1.5; color: #3F4A45">Step 4: choose the learners, the mentors and the dates, then publish.</p>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px"><section style="background: #FFFFFF; border: 1px solid #DCE1DE; border-radius: 12px; padding: 18px 20px; display: flex; flex-direction: column; gap: 10px; "><h2 style="margin: 0; font-size: 16px; font-weight: 700">Learners</h2>
+          <label style="display: flex; align-items: center; gap: 10px; min-height: 44px; font-size: 15px"><input type="checkbox" checked style="width: 20px; height: 20px"> Maintenance apprentices, Year 1 (12)</label><label style="display: flex; align-items: center; gap: 10px; min-height: 44px; font-size: 15px"><input type="checkbox" style="width: 20px; height: 20px"> Maintenance apprentices, Year 2 (9)</label>
+          <div style="display: flex; flex-direction: column; gap: 6px"><label for="NewAssign-inv" style="font-size: 14px; font-weight: 600">Or invite with a link or a code</label><input id="NewAssign-inv" value="aimpro.eu/join/MNT-4821" style="height: 44px; border: 1px solid #C9D0CC; border-radius: 8px; padding: 0 12px; font: inherit; font-size: 15px"></div>
+          <div style="font-size: 13px; color: #56625D">Learners without an account sign up and fill in their learner profile first.</div></section><section style="background: #FFFFFF; border: 1px solid #DCE1DE; border-radius: 12px; padding: 18px 20px; display: flex; flex-direction: column; gap: 10px; "><h2 style="margin: 0; font-size: 16px; font-weight: 700">Educators and mentors</h2>
+          <label style="display: flex; align-items: center; gap: 10px; min-height: 44px; font-size: 15px"><input type="checkbox" checked style="width: 20px; height: 20px"> Giulia Ferri, VET trainer (co-teacher)</label><label style="display: flex; align-items: center; gap: 10px; min-height: 44px; font-size: 15px"><input type="checkbox" checked style="width: 20px; height: 20px"> 3 company mentors (Company A, B, C)</label>
+          <div style="font-size: 13px; color: #56625D">Mentors see their apprentices' workplace tasks and can confirm their notes.</div></section></div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px"><section style="background: #FFFFFF; border: 1px solid #DCE1DE; border-radius: 12px; padding: 18px 20px; display: flex; flex-direction: column; gap: 10px; "><h2 style="margin: 0; font-size: 16px; font-weight: 700">Dates</h2>
+          <div style="display: flex; flex-direction: column; gap: 6px"><label for="NewAssign-st" style="font-size: 14px; font-weight: 600">Starts</label><input id="NewAssign-st" value="Monday, 1 December" style="height: 44px; border: 1px solid #C9D0CC; border-radius: 8px; padding: 0 12px; font: inherit; font-size: 15px"></div>
+          <div style="font-size: 14px; line-height: 1.6">Phase 1: 1 to 5 Dec<br>Phase 2: 8 to 19 Dec (at the company)<br>Phase 3: 12 to 16 Jan</div></section><section style="background: #FFFFFF; border: 1px solid #DCE1DE; border-radius: 12px; padding: 18px 20px; display: flex; flex-direction: column; gap: 10px; "><h2 style="margin: 0; font-size: 16px; font-weight: 700">Who can see this scenario</h2>
+          <label style="display: flex; gap: 10px; align-items: center; min-height: 44px; font-size: 15px"><input type="radio" name="vis" style="width: 20px; height: 20px"> Only me</label>
+          <label style="display: flex; gap: 10px; align-items: center; min-height: 44px; font-size: 15px"><input type="radio" name="vis" checked style="width: 20px; height: 20px"> My educator group</label>
+          <label style="display: flex; gap: 10px; align-items: center; min-height: 44px; font-size: 15px"><input type="radio" name="vis" style="width: 20px; height: 20px"> Everyone, as an open educational resource (CC BY)</label></section></div>
+      <section style="background: #FFFFFF; border: 1px solid #DCE1DE; border-radius: 12px; padding: 18px 20px; display: flex; flex-direction: column; gap: 10px; "><h2 style="margin: 0; font-size: 16px; font-weight: 700">Summary</h2>
+        <div style="font-size: 15px; line-height: 1.6">Using AI responsibly in maintenance work · 3 phases · 8 activities · 5 competencies · about 2 h 15 min · ends with the AIM PRO certificate</div></section>
+      <div style="display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap"><a href="#NewPhases" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; border-radius: 10px; border: 1px solid #C9D0CC; background: #FFFFFF; color: #1B2421; font-size: 15px; text-decoration: none">Back</a><a href="#EduScenario" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 20px; border-radius: 10px; background: #0E6A73; color: #FFFFFF; font-weight: 600; font-size: 15px; text-decoration: none">Publish and assign to 12 apprentices</a></div>
+    </main>
+  </div>
+</div>
+
+
+</div></section><section class="screen phone" id="StuSetup" data-title="S1. Student: tell us about you (learner context)"><div class="label">S1. Student: tell us about you (learner context)</div><div class="frame" style="width:390px">
+
+
+
+
+
+<div style="width: 390px; height: 1040px; box-sizing: border-box; font-family: Inter, system-ui, sans-serif; color: #1B2421; background: #F4F5F3; display: flex; flex-direction: column">
+  <header style="background: #FFFFFF; border-bottom: 1px solid #DCE1DE; padding: 16px"><div style="font-size: 12px; color: #56625D">About 1 minute</div><div style="font-size: 20px; font-weight: 700; margin-top: 4px">Hi Elena, tell us about you</div><div style="font-size: 14px; color: #3F4A45; margin-top: 4px">So AIM PRO can fit your learning to you.</div></header>
+  <div style="flex: 1; padding: 16px; display: flex; flex-direction: column; gap: 14px">
+    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px">
+      <div style="display: flex; flex-direction: column; gap: 6px"><label for="StuSetup-field" style="font-size: 14px; font-weight: 600">My field</label><select id="StuSetup-field" style="height: 44px; border: 1px solid #C9D0CC; border-radius: 8px; padding: 0 10px; font: inherit; font-size: 15px; background: #FFFFFF"><option>Maintenance (VET)</option><option>Electrical (VET)</option><option>Mechatronics (VET)</option></select></div>
+      <div style="display: flex; flex-direction: column; gap: 6px"><label for="StuSetup-lang" style="font-size: 14px; font-weight: 600">Language</label><select id="StuSetup-lang" style="height: 44px; border: 1px solid #C9D0CC; border-radius: 8px; padding: 0 10px; font: inherit; font-size: 15px; background: #FFFFFF"><option>Italiano</option><option>English</option></select></div>
+    </div>
+    <fieldset style="border: 0; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px">
+      <legend style="font-size: 14px; font-weight: 600; margin-bottom: 8px">How much have you used AI tools?</legend>
+      <div style="display: flex; gap: 8px"><button type="button" style="min-height: 40px; padding: 0 14px; border-radius: 999px; border: 1px solid #C9D0CC; background: #FFFFFF; font: inherit; font-size: 14px">Never</button><button type="button" aria-pressed="true" style="min-height: 40px; padding: 0 14px; border-radius: 999px; border: 2px solid #0E6A73; background: #DCEDEE; color: #0A4F56; font: inherit; font-size: 14px; font-weight: 600">A few times</button><button type="button" style="min-height: 40px; padding: 0 14px; border-radius: 999px; border: 1px solid #C9D0CC; background: #FFFFFF; font: inherit; font-size: 14px">Often</button></div>
+    </fieldset>
+    <fieldset style="border: 0; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 2px">
+      <legend style="font-size: 14px; font-weight: 600; margin-bottom: 6px">What do you need?</legend>
+      <label style="display: flex; align-items: center; gap: 10px; min-height: 44px; font-size: 15px"><input type="checkbox" checked style="width: 20px; height: 20px"> Use AI safely at my workplace</label><label style="display: flex; align-items: center; gap: 10px; min-height: 44px; font-size: 15px"><input type="checkbox" checked style="width: 20px; height: 20px"> A certificate for my CV</label><label style="display: flex; align-items: center; gap: 10px; min-height: 44px; font-size: 15px"><input type="checkbox" style="width: 20px; height: 20px"> Understand technical manuals</label>
+    </fieldset>
+    <fieldset style="border: 0; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px">
+      <legend style="font-size: 14px; font-weight: 600; margin-bottom: 8px">How do you like to learn?</legend>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px"><button type="button" aria-pressed="true" style="min-height: 40px; padding: 0 14px; border-radius: 999px; border: 2px solid #0E6A73; background: #DCEDEE; color: #0A4F56; font: inherit; font-size: 14px; font-weight: 600">Short videos</button><button type="button" style="min-height: 40px; padding: 0 14px; border-radius: 999px; border: 1px solid #C9D0CC; background: #FFFFFF; font: inherit; font-size: 14px">Reading</button><button type="button" aria-pressed="true" style="min-height: 40px; padding: 0 14px; border-radius: 999px; border: 2px solid #0E6A73; background: #DCEDEE; color: #0A4F56; font: inherit; font-size: 14px; font-weight: 600">Doing real tasks</button><button type="button" style="min-height: 40px; padding: 0 14px; border-radius: 999px; border: 1px solid #C9D0CC; background: #FFFFFF; font: inherit; font-size: 14px">Listening</button><button type="button" style="min-height: 40px; padding: 0 14px; border-radius: 999px; border: 1px solid #C9D0CC; background: #FFFFFF; font: inherit; font-size: 14px">In a group</button></div>
+    </fieldset>
+    <div style="display: flex; flex-direction: column; gap: 6px"><label for="StuSetup-time" style="font-size: 14px; font-weight: 600">Time per week</label><select id="StuSetup-time" style="height: 44px; border: 1px solid #C9D0CC; border-radius: 8px; padding: 0 10px; font: inherit; font-size: 15px; background: #FFFFFF"><option>About 2 hours</option></select></div>
+    <p style="margin: 0; font-size: 13px; line-height: 1.5; color: #56625D">Only you, your trainer and your mentor see this. You can change it any time.</p>
+  </div>
+  <footer style="background: #FFFFFF; border-top: 1px solid #DCE1DE; padding: 12px 16px 20px"><a href="#StuHome" style="display: flex; align-items: center; justify-content: center; min-height: 50px; border-radius: 12px; background: #0E6A73; color: #FFFFFF; font-size: 15px; font-weight: 600; text-decoration: none">Continue</a></footer>
+</div>
+
+
+</div></section><section class="screen phone" id="StuHome" data-title="S2. Student home"><div class="label">S2. Student home</div><div class="frame" style="width:390px">
+
+
+
+
+
+<div style="width: 390px; height: 1000px; box-sizing: border-box; font-family: Inter, system-ui, sans-serif; color: #1B2421; background: #F4F5F3; display: flex; flex-direction: column">
+  <header style="background: #FFFFFF; border-bottom: 1px solid #DCE1DE; padding: 14px 16px; display: flex; align-items: center; justify-content: space-between"><div style="display: flex; align-items: center; gap: 10px"><div style="width: 30px; height: 30px; border-radius: 8px; background: #0E6A73; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 12px">AP</div><div style="font-size: 15px; font-weight: 600">AIM PRO</div></div><div style="font-size: 13px; color: #56625D">Elena · Apprentice</div></header>
+  <div style="flex: 1; padding: 16px; display: flex; flex-direction: column; gap: 14px">
+    <h1 style="margin: 0; font-size: 23px; font-weight: 700; line-height: 1.25">Hi Elena, what do you need today?</h1>
+    <div style="display: flex; gap: 8px; align-items: center">
+      <label for="StuHome-ask" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">What do you need?</label>
+      <input id="StuHome-ask" placeholder="Ask your learning assistant" style="flex: 1; height: 48px; border: 1px solid #C9D0CC; border-radius: 12px; padding: 0 14px; font: inherit; font-size: 15px; background: #FFFFFF">
+      <button type="button" aria-label="Ask by voice" style="width: 48px; height: 48px; border-radius: 12px; border: 1px solid #C9D0CC; background: #FFFFFF; color: #1B2421; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"></rect><path d="M5 11a7 7 0 0 0 14 0"></path><path d="M12 18v3"></path></svg></button>
+    </div>
+    <div style="font-size: 13px; font-weight: 600; color: #56625D; text-transform: uppercase; letter-spacing: 0.04em; margin-top: 4px">Up next</div>
+    <a href="#StuSteps" style="background: #FFFFFF; border: 2px solid #0E6A73; border-radius: 14px; padding: 16px; display: flex; flex-direction: column; gap: 6px; text-decoration: none; color: #1B2421">
+      <span style="align-self: flex-start; padding: 2px 10px; border-radius: 999px; background: #FCEBD3; color: #7A4200; font-size: 12px; font-weight: 600">Workplace task · Phase 2 · from Marco</span>
+      <span style="font-size: 17px; font-weight: 700">Noisy conveyor belt motor</span>
+      <span style="font-size: 14px; color: #3F4A45">15 minutes · do it at the company with your mentor</span>
+      <span style="font-size: 15px; font-weight: 600; color: #0E6A73; margin-top: 4px">Start</span>
+    </a>
+    <a href="#StuPath" style="background: #FFFFFF; border: 1px solid #DCE1DE; border-radius: 14px; padding: 16px; display: flex; flex-direction: column; gap: 10px; text-decoration: none; color: #1B2421">
+      <span style="font-size: 13px; color: #56625D">My learning scenario · with Marco</span>
+      <span style="font-size: 16px; font-weight: 700">Using AI responsibly in maintenance work</span>
+      <div style="display: flex; gap: 6px" aria-hidden="true"><span style="flex: 1; height: 8px; border-radius: 999px; background: #0E6A73"></span><span style="flex: 1; height: 8px; border-radius: 999px; background: #E6EAE8"></span><span style="flex: 1; height: 8px; border-radius: 999px; background: #E6EAE8"></span></div>
+      <span style="font-size: 14px; color: #3F4A45">Phase 1 done · Phase 2: 0 of 3 activities</span>
+    </a>
+    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px">
+      <a href="#StuProfile" style="background: #FFFFFF; border: 1px solid #DCE1DE; border-radius: 12px; padding: 14px; text-decoration: none; color: #1B2421"><div style="font-size: 22px; font-weight: 700">1 of 5</div><div style="font-size: 13px; color: #56625D">competencies mastered</div></a>
+      <a href="#StuProfile" style="background: #FFFFFF; border: 1px solid #DCE1DE; border-radius: 12px; padding: 14px; text-decoration: none; color: #1B2421"><div style="font-size: 22px; font-weight: 700">2 weeks</div><div style="font-size: 13px; color: #56625D">learning in a row</div></a>
+    </div>
+  </div>
+  <nav aria-label="Main" style="background: #FFFFFF; border-top: 1px solid #DCE1DE; padding: 8px 8px 18px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr))"><a href="#StuHome" style="min-height: 44px; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; text-decoration: none">Home</a><a href="#StuPath" style="min-height: 44px; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #3F4A45; text-decoration: none">My path</a><a href="#StuProfile" style="min-height: 44px; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #3F4A45; text-decoration: none">My profile</a></nav>
+</div>
+
+
+</div></section><section class="screen phone" id="StuPath" data-title="S3. Student: my learning path"><div class="label">S3. Student: my learning path</div><div class="frame" style="width:390px">
+
+
+
+
+
+<div style="width: 390px; height: 1240px; box-sizing: border-box; font-family: Inter, system-ui, sans-serif; color: #1B2421; background: #F4F5F3; display: flex; flex-direction: column">
+  <header style="background: #FFFFFF; border-bottom: 1px solid #DCE1DE; padding: 16px"><div style="font-size: 12px; color: #56625D">My learning scenario · with Marco</div><div style="font-size: 19px; font-weight: 700; margin-top: 2px">Using AI responsibly in maintenance work</div><div style="font-size: 13px; color: #3F4A45; margin-top: 6px">Finish the 3 phases to earn the certificate "AI literacy for professionals, level 1"</div></header>
+  <div style="flex: 1; padding: 16px; display: flex; flex-direction: column; gap: 14px">
+    <section style="background: #FFFFFF; border: 1px solid #DCE1DE; border-radius: 12px; padding: 14px">
+      <div style="display: flex; justify-content: space-between; gap: 8px; align-items: baseline"><h2 style="margin: 0; font-size: 15px; font-weight: 700">Phase 1 · Understand AI</h2><span style="font-size: 12px; font-weight: 600; color: #174D33; text-align: right">Done</span></div>
+      <div style="font-size: 13px; color: #56625D; margin: 4px 0 6px">Explain what generative AI is and what it cannot do</div>
+      <ol style="list-style: none; margin: 0; padding: 0"><li style="display: flex; gap: 10px; align-items: center; padding: 10px 0; border-top: 1px solid #E6EAE8; font-size: 15px"><span aria-label="done" style="width: 22px; height: 22px; flex: 0 0 22px; border-radius: 999px; background: #1C5E3F; color: #FFFFFF; font-size: 12px; display: flex; align-items: center; justify-content: center">✓</span><span style="flex: 1">What is generative AI?</span><span style="font-size: 12px; color: #56625D; text-align: right">Lecture</span></li><li style="display: flex; gap: 10px; align-items: center; padding: 10px 0; border-top: 1px solid #E6EAE8; font-size: 15px"><span aria-label="done" style="width: 22px; height: 22px; flex: 0 0 22px; border-radius: 999px; background: #1C5E3F; color: #FFFFFF; font-size: 12px; display: flex; align-items: center; justify-content: center">✓</span><span style="flex: 1">How to ask AI a clear question</span><span style="font-size: 12px; color: #56625D; text-align: right">Tutorial</span></li><li style="display: flex; gap: 10px; align-items: center; padding: 10px 0; border-top: 1px solid #E6EAE8; font-size: 15px"><span aria-label="done" style="width: 22px; height: 22px; flex: 0 0 22px; border-radius: 999px; background: #1C5E3F; color: #FFFFFF; font-size: 12px; display: flex; align-items: center; justify-content: center">✓</span><a href="#StuQuiz" style="flex: 1">AI at work: true or false?</a><span style="font-size: 12px; color: #56625D; text-align: right">Quiz</span></li></ol>
+    </section>
+    <section style="background: #FFFFFF; border: 2px solid #0E6A73; border-radius: 12px; padding: 14px">
+      <div style="display: flex; justify-content: space-between; gap: 8px; align-items: baseline"><h2 style="margin: 0; font-size: 15px; font-weight: 700">Phase 2 · Use AI at work</h2><span style="font-size: 12px; font-weight: 600; color: #0A4F56; text-align: right">Now</span></div>
+      <div style="font-size: 13px; color: #56625D; margin: 4px 0 6px">Use AI on real tasks and check what it gives you</div>
+      <ol style="list-style: none; margin: 0; padding: 0"><li style="display: flex; gap: 10px; align-items: center; padding: 10px 0; border-top: 1px solid #E6EAE8; font-size: 15px"><span aria-label="up next" style="width: 22px; height: 22px; flex: 0 0 22px; border-radius: 999px; border: 2px solid #0E6A73; box-sizing: border-box"></span><a href="#StuSteps" style="flex: 1; font-weight: 600">Noisy conveyor belt motor</a><span style="font-size: 12px; color: #56625D; text-align: right">Workplace task</span></li><li style="display: flex; gap: 10px; align-items: center; padding: 10px 0; border-top: 1px solid #E6EAE8; font-size: 15px"><span aria-label="not started" style="width: 22px; height: 22px; flex: 0 0 22px; border-radius: 999px; border: 2px solid #C9D0CC; box-sizing: border-box"></span><span style="flex: 1">Checking the compressor air filter</span><span style="font-size: 12px; color: #56625D; text-align: right">Workplace task</span></li><li style="display: flex; gap: 10px; align-items: center; padding: 10px 0; border-top: 1px solid #E6EAE8; font-size: 15px"><span aria-label="not started" style="width: 22px; height: 22px; flex: 0 0 22px; border-radius: 999px; border: 2px solid #C9D0CC; box-sizing: border-box"></span><span style="flex: 1">Compare your notes with a classmate</span><span style="font-size: 12px; color: #56625D; text-align: right">Peer review</span></li></ol>
+    </section>
+    <section style="background: #FFFFFF; border: 1px solid #DCE1DE; border-radius: 12px; padding: 14px">
+      <div style="display: flex; justify-content: space-between; gap: 8px; align-items: baseline"><h2 style="margin: 0; font-size: 15px; font-weight: 700">Phase 3 · Use AI responsibly</h2><span style="font-size: 12px; font-weight: 600; color: #56625D; text-align: right">Opens after Phase 2</span></div>
+      <div style="font-size: 13px; color: #56625D; margin: 4px 0 6px">Decide when and how to use AI ethically and sustainably</div>
+      <ol style="list-style: none; margin: 0; padding: 0"><li style="display: flex; gap: 10px; align-items: center; padding: 10px 0; border-top: 1px solid #E6EAE8; font-size: 15px"><span aria-label="not started" style="width: 22px; height: 22px; flex: 0 0 22px; border-radius: 999px; border: 2px solid #C9D0CC; box-sizing: border-box"></span><span style="flex: 1">Group case: AI advice and safety rules</span><span style="font-size: 12px; color: #56625D; text-align: right">Collaborative activity</span></li><li style="display: flex; gap: 10px; align-items: center; padding: 10px 0; border-top: 1px solid #E6EAE8; font-size: 15px"><span aria-label="not started" style="width: 22px; height: 22px; flex: 0 0 22px; border-radius: 999px; border: 2px solid #C9D0CC; box-sizing: border-box"></span><span style="flex: 1">Do you really need AI for this?</span><span style="font-size: 12px; color: #56625D; text-align: right">Challenge</span></li><li style="display: flex; gap: 10px; align-items: center; padding: 10px 0; border-top: 1px solid #E6EAE8; font-size: 15px"><span aria-label="not started" style="width: 22px; height: 22px; flex: 0 0 22px; border-radius: 999px; border: 2px solid #C9D0CC; box-sizing: border-box"></span><a href="#StuQuiz" style="flex: 1">Final check with your trainer</a><span style="font-size: 12px; color: #56625D; text-align: right">Ai-based assessment</span></li></ol>
+    </section>
+
+  </div>
+  <nav aria-label="Main" style="background: #FFFFFF; border-top: 1px solid #DCE1DE; padding: 8px 8px 18px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr))"><a href="#StuHome" style="min-height: 44px; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #3F4A45; text-decoration: none">Home</a><a href="#StuPath" style="min-height: 44px; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; text-decoration: none">My path</a><a href="#StuProfile" style="min-height: 44px; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #3F4A45; text-decoration: none">My profile</a></nav>
+</div>
+
+
+</div></section><section class="screen phone" id="StuSteps" data-title="S4. Student: workplace task (conveyor motor)"><div class="label">S4. Student: workplace task (conveyor motor)</div><div class="frame" style="width:390px">
+
+
+
+
+
+<div style="width: 390px; height: 1000px; box-sizing: border-box; font-family: Inter, system-ui, sans-serif; color: #1B2421; background: #F4F5F3; display: flex; flex-direction: column">
+  <header style="background: #FFFFFF; border-bottom: 1px solid #DCE1DE; padding: 16px"><a href="#StuPath" style="font-size: 14px">Back to my path</a><div style="font-size: 12px; color: #56625D; margin-top: 8px">Phase 2 · Workplace task · from Marco · 15 min</div><div style="font-size: 19px; font-weight: 700; margin-top: 2px">Noisy conveyor belt motor</div></header>
+  <div style="flex: 1; padding: 16px; display: flex; flex-direction: column; gap: 14px">
+    <section style="background: #FFFFFF; border: 1px solid #DCE1DE; border-radius: 12px; padding: 14px">
+      <div style="font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; color: #56625D; margin-bottom: 4px">Scenario</div>
+      <p style="margin: 0; font-size: 15px; line-height: 1.5">The motor of a conveyor belt in the company is making a strange noise.</p>
+    </section>
+    <section style="background: #FFFFFF; border: 1px solid #DCE1DE; border-radius: 12px; padding: 14px">
+      <div style="font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; color: #56625D; margin-bottom: 8px">What to do</div>
+      <ol style="margin: 0; padding-left: 20px; font-size: 15px; line-height: 1.55; display: flex; flex-direction: column; gap: 8px">
+        <li>Ask your usual AI tool: "What can cause a strange noise in a conveyor belt motor?" Write the causes it gives.</li>
+        <li>Look up each cause in the troubleshooting page of the manual. <a href="#StuSteps">Open manual page</a></li>
+        <li>Show your notes to your mentor. Write down what the mentor says.</li>
+        <li>With your mentor, mark which cause you will check first.</li>
+      </ol>
+    </section>
+    <section style="background: #E1F2E8; border: 1px solid #B9DEC9; border-radius: 12px; padding: 14px; font-size: 14px; line-height: 1.5; color: #174D33"><strong>Your reward:</strong> the Double-checker badge. You earn it by checking, not by the AI being right. Builds: <strong>Evaluating AI outputs</strong>.</section>
+  </div>
+  <footer style="background: #FFFFFF; border-top: 1px solid #DCE1DE; padding: 12px 16px 20px"><a href="#StuNotes" style="display: flex; align-items: center; justify-content: center; min-height: 50px; border-radius: 12px; background: #0E6A73; color: #FFFFFF; font-size: 15px; font-weight: 600; text-decoration: none">Start my notes</a></footer>
+</div>
+
+
+</div></section><section class="screen phone" id="StuNotes" data-title="S5. Student: my notes (learning artifact)"><div class="label">S5. Student: my notes (learning artifact)</div><div class="frame" style="width:390px">
+
+
+
+
+
+<div style="width: 390px; height: 1180px; box-sizing: border-box; font-family: Inter, system-ui, sans-serif; color: #1B2421; background: #F4F5F3; display: flex; flex-direction: column">
+  <header style="background: #FFFFFF; border-bottom: 1px solid #DCE1DE; padding: 16px"><a href="#StuSteps" style="font-size: 14px">Back to the steps</a><div style="font-size: 19px; font-weight: 700; margin-top: 8px">My notes</div><div style="font-size: 13px; color: #56625D; margin-top: 2px">Noisy conveyor belt motor · saved in my portfolio</div></header>
+  <div style="flex: 1; padding: 16px; display: flex; flex-direction: column; gap: 14px">
+    <section style="background: #FFFFFF; border: 1px solid #DCE1DE; border-radius: 12px; padding: 14px; display: flex; flex-direction: column; gap: 10px">
+      <div style="display: flex; flex-direction: column; gap: 4px"><label for="StuNotes-a1" style="font-size: 13px; font-weight: 600; color: #3F4A45">Possible cause (AI)</label><input id="StuNotes-a1" value="Worn motor bearings" style="height: 42px; border: 1px solid #C9D0CC; border-radius: 8px; padding: 0 10px; font: inherit; font-size: 14px"></div>
+      <div style="display: flex; flex-direction: column; gap: 4px"><label for="StuNotes-m1" style="font-size: 13px; font-weight: 600; color: #3F4A45">Manual</label><input id="StuNotes-m1" value="Listed. Listen to the bearing, replace if worn." style="height: 42px; border: 1px solid #C9D0CC; border-radius: 8px; padding: 0 10px; font: inherit; font-size: 14px"></div>
+      <div style="display: flex; flex-direction: column; gap: 4px"><label for="StuNotes-t1" style="font-size: 13px; font-weight: 600; color: #3F4A45">Mentor</label><input id="StuNotes-t1" value="Common on this line. Check this first." style="height: 42px; border: 1px solid #C9D0CC; border-radius: 8px; padding: 0 10px; font: inherit; font-size: 14px"></div>
+      <label style="display: flex; align-items: center; gap: 10px; min-height: 44px; font-size: 14px; font-weight: 600; color: #174D33"><input type="radio" name="first" checked style="width: 20px; height: 20px"> We check this first</label>
+    </section>    <section style="background: #FFFFFF; border: 1px solid #DCE1DE; border-radius: 12px; padding: 14px; display: flex; flex-direction: column; gap: 10px">
+      <div style="display: flex; flex-direction: column; gap: 4px"><label for="StuNotes-a2" style="font-size: 13px; font-weight: 600; color: #3F4A45">Possible cause (AI)</label><input id="StuNotes-a2" value="Loose mounting bolts" style="height: 42px; border: 1px solid #C9D0CC; border-radius: 8px; padding: 0 10px; font: inherit; font-size: 14px"></div>
+      <div style="display: flex; flex-direction: column; gap: 4px"><label for="StuNotes-m2" style="font-size: 13px; font-weight: 600; color: #3F4A45">Manual</label><input id="StuNotes-m2" value="Listed. Check the bolts and tighten them." style="height: 42px; border: 1px solid #C9D0CC; border-radius: 8px; padding: 0 10px; font: inherit; font-size: 14px"></div>
+      <div style="display: flex; flex-direction: column; gap: 4px"><label for="StuNotes-t2" style="font-size: 13px; font-weight: 600; color: #3F4A45">Mentor</label><input id="StuNotes-t2" value="Possible, and quick to check." style="height: 42px; border: 1px solid #C9D0CC; border-radius: 8px; padding: 0 10px; font: inherit; font-size: 14px"></div>
+      <label style="display: flex; align-items: center; gap: 10px; min-height: 44px; font-size: 14px"><input type="radio" name="first" style="width: 20px; height: 20px"> We check this first</label>
+    </section>    <section style="background: #FFFFFF; border: 1px solid #DCE1DE; border-radius: 12px; padding: 14px; display: flex; flex-direction: column; gap: 10px">
+      <div style="display: flex; flex-direction: column; gap: 4px"><label for="StuNotes-a3" style="font-size: 13px; font-weight: 600; color: #3F4A45">Possible cause (AI)</label><input id="StuNotes-a3" value="Belt too tight" style="height: 42px; border: 1px solid #C9D0CC; border-radius: 8px; padding: 0 10px; font: inherit; font-size: 14px"></div>
+      <div style="display: flex; flex-direction: column; gap: 4px"><label for="StuNotes-m3" style="font-size: 13px; font-weight: 600; color: #3F4A45">Manual</label><input id="StuNotes-m3" value="On the belt page, not the motor page." style="height: 42px; border: 1px solid #C9D0CC; border-radius: 8px; padding: 0 10px; font: inherit; font-size: 14px"></div>
+      <div style="display: flex; flex-direction: column; gap: 4px"><label for="StuNotes-t3" style="font-size: 13px; font-weight: 600; color: #3F4A45">Mentor</label><input id="StuNotes-t3" value="Less likely here, the belt was set last week." style="height: 42px; border: 1px solid #C9D0CC; border-radius: 8px; padding: 0 10px; font: inherit; font-size: 14px"></div>
+      <label style="display: flex; align-items: center; gap: 10px; min-height: 44px; font-size: 14px"><input type="radio" name="first" style="width: 20px; height: 20px"> We check this first</label>
+    </section>
+    <button type="button" style="min-height: 44px; border-radius: 10px; border: 1px dashed #A9B3AE; background: #FAFBFA; font: inherit; font-size: 14px">Add another cause</button>
+  </div>
+  <footer style="background: #FFFFFF; border-top: 1px solid #DCE1DE; padding: 12px 16px 20px"><a href="#StuQuiz" style="display: flex; align-items: center; justify-content: center; min-height: 50px; border-radius: 12px; background: #0E6A73; color: #FFFFFF; font-size: 15px; font-weight: 600; text-decoration: none">Send my notes to my mentor and Marco</a></footer>
+</div>
+
+
+</div></section><section class="screen phone" id="StuQuiz" data-title="S6. Student: self-assessment"><div class="label">S6. Student: self-assessment</div><div class="frame" style="width:390px">
+
+
+
+
+
+<div style="width: 390px; height: 900px; box-sizing: border-box; font-family: Inter, system-ui, sans-serif; color: #1B2421; background: #F4F5F3; display: flex; flex-direction: column">
+  <header style="background: #FFFFFF; border-bottom: 1px solid #DCE1DE; padding: 16px; display: flex; flex-direction: column; gap: 10px">
+    <div style="display: flex; justify-content: space-between; align-items: center"><a href="#StuPath" style="font-size: 14px">Close</a><span style="font-size: 13px; color: #56625D">Question 3 of 5</span></div>
+    <div style="display: flex; gap: 4px" aria-hidden="true"><span style="flex: 1; height: 6px; border-radius: 999px; background: #1C5E3F"></span><span style="flex: 1; height: 6px; border-radius: 999px; background: #1C5E3F"></span><span style="flex: 1; height: 6px; border-radius: 999px; background: #0E6A73"></span><span style="flex: 1; height: 6px; border-radius: 999px; background: #E6EAE8"></span><span style="flex: 1; height: 6px; border-radius: 999px; background: #E6EAE8"></span></div>
+    <div style="font-size: 12px; color: #56625D">Self-assessment · Evaluating AI outputs</div>
+  </header>
+  <div style="flex: 1; padding: 16px; display: flex; flex-direction: column; gap: 14px">
+    <h1 style="margin: 0; font-size: 19px; font-weight: 700; line-height: 1.4">An AI tool gives you a confident, well-written answer for a report at work. What do you do?</h1>
+    <fieldset style="border: 0; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px">
+      <legend style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Choose one answer</legend>
+      <label style="display: flex; gap: 10px; align-items: center; min-height: 52px; padding: 0 14px; border-radius: 12px; border: 1px solid #C9D0CC; background: #FFFFFF; font-size: 15px"><input type="radio" name="q" style="width: 20px; height: 20px"> Use it as it is</label>
+      <label style="display: flex; gap: 10px; align-items: center; min-height: 52px; padding: 0 14px; border-radius: 12px; border: 2px solid #1C5E3F; background: #E1F2E8; font-size: 15px; font-weight: 600; color: #174D33"><input type="radio" name="q" checked style="width: 20px; height: 20px"> Check the key facts with a reliable source</label>
+      <label style="display: flex; gap: 10px; align-items: center; min-height: 52px; padding: 0 14px; border-radius: 12px; border: 1px solid #C9D0CC; background: #FFFFFF; font-size: 15px"><input type="radio" name="q" style="width: 20px; height: 20px"> Ask the AI if it is sure</label>
+    </fieldset>
+    <section style="background: #FFFFFF; border: 1px solid #B9DEC9; border-radius: 12px; padding: 14px; font-size: 15px; line-height: 1.5">
+      <div style="font-weight: 700; color: #174D33; margin-bottom: 4px">Correct</div>
+      AI can save you a lot of time. But a confident answer is not always a correct one, and at work you are responsible for what you hand in.
+      <div style="margin-top: 8px"><button type="button" style="min-height: 40px; padding: 0 12px; border-radius: 8px; border: 1px solid #C9D0CC; background: #FFFFFF; font: inherit; font-size: 14px">Explain more</button></div>
+    </section>
+  </div>
+  <footer style="background: #FFFFFF; border-top: 1px solid #DCE1DE; padding: 12px 16px 20px"><a href="#StuProfile" style="display: flex; align-items: center; justify-content: center; min-height: 50px; border-radius: 12px; background: #0E6A73; color: #FFFFFF; font-size: 15px; font-weight: 600; text-decoration: none">Next question</a></footer>
+</div>
+
+
+</div></section><section class="screen phone" id="StuProfile" data-title="S7. Student: competencies, certificate, portfolio"><div class="label">S7. Student: competencies, certificate, portfolio</div><div class="frame" style="width:390px">
+
+
+
+
+
+<div style="width: 390px; height: 1160px; box-sizing: border-box; font-family: Inter, system-ui, sans-serif; color: #1B2421; background: #F4F5F3; display: flex; flex-direction: column">
+  <header style="background: #FFFFFF; border-bottom: 1px solid #DCE1DE; padding: 16px; display: flex; gap: 12px; align-items: center"><div aria-hidden="true" style="width: 48px; height: 48px; border-radius: 999px; background: #DCEDEE; color: #0A4F56; display: flex; align-items: center; justify-content: center; font-weight: 700">E</div><div><div style="font-size: 18px; font-weight: 700">Elena</div><div style="font-size: 13px; color: #56625D">Apprentice · Maintenance, Year 1 · Company A</div></div></header>
+  <div style="flex: 1; padding: 16px; display: flex; flex-direction: column; gap: 14px">
+    <section style="background: #FFFFFF; border: 1px solid #DCE1DE; border-radius: 12px; padding: 14px; display: flex; flex-direction: column; gap: 8px">
+      <div style="font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; color: #56625D">Certificate in progress</div>
+      <div style="font-size: 16px; font-weight: 700">AIM PRO AI literacy for professionals, level 1</div>
+      <div style="height: 8px; border-radius: 999px; background: #E6EAE8"><div style="width: 40%; height: 8px; border-radius: 999px; background: #0E6A73"></div></div>
+      <div style="font-size: 13px; color: #3F4A45">Phase 2 of 3. Finish the scenario to earn it.</div>
+    </section>
+    <section style="background: #FFFFFF; border: 1px solid #DCE1DE; border-radius: 12px; padding: 14px; display: flex; flex-direction: column; gap: 12px">
+      <div style="font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; color: #56625D">My competencies</div>
+      <div style="display: flex; justify-content: space-between; gap: 8px; font-size: 14px"><span>Understanding AI</span><span style="padding: 2px 8px; border-radius: 6px; background: #1C5E3F; color: #FFFFFF; font-size: 12px; white-space: nowrap; align-self: flex-start">Mastered</span></div><div style="display: flex; justify-content: space-between; gap: 8px; font-size: 14px"><span>Using AI effectively</span><span style="padding: 2px 8px; border-radius: 6px; background: #B9DEC9; color: #174D33; font-size: 12px; white-space: nowrap; align-self: flex-start">Practised</span></div><div style="display: flex; justify-content: space-between; gap: 8px; font-size: 14px"><span>Evaluating AI outputs</span><span style="padding: 2px 8px; border-radius: 6px; background: #FCEBD3; color: #7A4200; font-size: 12px; white-space: nowrap; align-self: flex-start">Started</span></div><div style="display: flex; justify-content: space-between; gap: 8px; font-size: 14px"><span>Ethical and responsible use</span><span style="padding: 2px 8px; border-radius: 6px; background: #F4F5F3; color: #3F4A45; font-size: 12px; white-space: nowrap; align-self: flex-start">Not started</span></div><div style="display: flex; justify-content: space-between; gap: 8px; font-size: 14px"><span>Sustainable AI use</span><span style="padding: 2px 8px; border-radius: 6px; background: #F4F5F3; color: #3F4A45; font-size: 12px; white-space: nowrap; align-self: flex-start">Not started</span></div>
+    </section>
+    <section style="background: #FFFFFF; border: 1px solid #DCE1DE; border-radius: 12px; padding: 14px; display: flex; gap: 10px; align-items: center">
+      <div aria-hidden="true" style="width: 44px; height: 44px; flex: 0 0 44px; border-radius: 999px; background: #E1F2E8; border: 3px solid #1C5E3F; color: #1C5E3F; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l4 4 8-8"></path><path d="M10 16l2 2 8-8"></path></svg></div>
+      <div style="font-size: 14px; line-height: 1.4"><strong>Double-checker badge</strong><br><span style="color: #56625D">For checking AI with the manual and your mentor</span></div>
+    </section>
+    <section style="background: #FFFFFF; border: 1px solid #DCE1DE; border-radius: 12px; padding: 14px; display: flex; flex-direction: column; gap: 4px">
+      <div style="font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; color: #56625D">My portfolio (work I made)</div>
+      <a href="#StuNotes" style="display: flex; justify-content: space-between; gap: 8px; min-height: 44px; align-items: center; font-size: 14px; border-top: 1px solid #E6EAE8">My notes: noisy conveyor belt motor<span style="color: #7A4200; font-size: 12px; white-space: nowrap">In review</span></a>
+      <a href="#StuProfile" style="display: flex; justify-content: space-between; gap: 8px; min-height: 44px; align-items: center; font-size: 14px; border-top: 1px solid #E6EAE8">My notes: compressor air filter<span style="color: #174D33; font-size: 12px; white-space: nowrap">Approved</span></a>
+    </section>
+    <button type="button" style="min-height: 48px; border-radius: 12px; border: 1px solid #C9D0CC; background: #FFFFFF; font: inherit; font-size: 15px; font-weight: 600">Share my portfolio with an employer</button>
+    <a href="#StuSetup" style="font-size: 14px; text-align: center">Change my learning preferences</a>
+  </div>
+  <nav aria-label="Main" style="background: #FFFFFF; border-top: 1px solid #DCE1DE; padding: 8px 8px 18px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr))"><a href="#StuHome" style="min-height: 44px; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #3F4A45; text-decoration: none">Home</a><a href="#StuPath" style="min-height: 44px; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #3F4A45; text-decoration: none">My path</a><a href="#StuProfile" style="min-height: 44px; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; text-decoration: none">My profile</a></nav>
+</div>
+
+
+</div></section>
+<script>
+var ids=[].map.call(document.querySelectorAll('.screen'),function(s){return s.id});
+function show(){var h=decodeURIComponent(location.hash.slice(1));if(ids.indexOf(h)<0)h=ids[0];
+ids.forEach(function(i){document.getElementById(i).classList.toggle('on',i===h)});document.getElementById('pick').value=h;window.scrollTo(0,0)}
+window.addEventListener('hashchange',show);
+document.getElementById('pick').onchange=function(e){location.hash=e.target.value};
+function step(d){var i=ids.indexOf(document.getElementById('pick').value)+d;if(i>=0&&i<ids.length)location.hash=ids[i]}
+document.getElementById('prev').onclick=function(){step(-1)};document.getElementById('next').onclick=function(){step(1)};
+show();
+</script></body></html>
